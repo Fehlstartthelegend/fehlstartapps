@@ -1,11 +1,50 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import AppCard from '../components/AppCard.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Andrin Frey - App Developer">
+  <main>
+    <h1>Meine Apps</h1>
+    
+    <div class="grid">
+      <AppCard 
+        title="LeftoverLens" 
+        description="KI-Rezepte aus deinen Resten." 
+        link="#" 
+        icon="📸"
+      />
+      <AppCard 
+        title="SackHeld" 
+        description="Organisiere deinen Haushalt spielend leicht." 
+        link="#" 
+        icon="🗑️"
+      />
+      <AppCard 
+        title="SleepSync" 
+        description="Optimiere deinen Schlafzyklus." 
+        link="#" 
+        icon="💤"
+      />
+	  <AppCard 
+        title="Focuzzz" 
+        description="Dein Fokus-Timer für maximale Produktivität." 
+        link="#" 
+        icon="⏱️"
+      />
+    </div>
+
+    <section class="coffee">
+      <h2>Unterstütze meine Arbeit</h2>
+      <a href="https://www.buymeacoffee.com/DEIN_NAME" target="_blank">
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+      </a>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  main { margin: auto; padding: 2rem; max-width: 800px; color: #333; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .coffee { margin-top: 4rem; text-align: center; }
+</style>
