@@ -1,0 +1,33 @@
+---
+// src/components/AppCard.astro
+const { title, description, link, icon } = Astro.props;
+---
+
+<div class="card">
+  <div class="icon">{icon}</div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <a href={link} class="button">Mehr erfahren</a>
+</div>
+
+<style>
+  .card {
+    border: 1px solid #444;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: scale(1.05); }
+  .button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #0070f3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+</style>
