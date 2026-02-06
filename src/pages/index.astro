@@ -1,15 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AppCard from '../components/AppCard.astro';
+import LoLIcon from '../assets/LoL_icon.png';
+import SHIcon from '../assets/SH_Held.png';
+import FocIcon from '../assets/Foc_icon.png';
 ---
 
 <Layout title="Fehlstart - App Developer">
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <div class="badge">✨ Welcome to my app universe</div>
-      <h1>Building Apps That Matter</h1>
-      <p>Ich entwickle intuitive, schöne Apps für deine digitale Welt. Jedes Projekt ist ein Meisterwerk der Kreativität und Funktionalität.</p>
+      <div class="badge">Willkommen in meinem Kopf</div>
+      <h1>building apps<br>that matter</h1>
+      <p>Ich versuche mit meinen Apps intuitive,<br>schöne Helfer für deine digitale Welt zu schaffen.<br>Hinterlasse hier gerne dein Feedback<br>oder Verbesserungsvorschläge!</p>
       <div class="hero-buttons">
         <a href="#apps" class="btn btn-primary">Meine Apps Erkunden</a>
         <a href="#support" class="btn btn-secondary">Hier unterstützen</a>
@@ -25,34 +28,34 @@ import AppCard from '../components/AppCard.astro';
   <!-- Apps Section -->
   <section id="apps" class="apps-section">
     <div class="section-header">
-      <h2>Meine App-Kreationen</h2>
-      <p>Vier innovative Apps, die dein Leben leichter machen</p>
+      <h2>Meine bisherigen Apps</h2>
+      <p>Apps, die dein Leben leichter machen (hoffentlich ;))</p>
     </div>
     
     <div class="apps-grid">
       <AppCard 
         title="LeftoverLens" 
         description="KI-Rezepte aus deinen Resten." 
-        link="#" 
-        icon="📸"
+        link="/leftoverlens" 
+        icon={LoLIcon}
       />
       <AppCard 
         title="SackHeld" 
-        description="Sparziele spielend leicht verwalten." 
-        link="#" 
-        icon="🗑️"
+        description="Sparziele spielend leicht verwalten und Budgetierung lernen." 
+        link="/sackheld" 
+        icon={SHIcon}
       />
       <AppCard 
         title="SleepSync" 
-        description="Optimiere deinen Schlafzyklus." 
-        link="#" 
+        description="Optimiere deinen Schlafzyklus und finde deinen perfekten Schlaf." 
+        link="/sleepsync" 
         icon="💤"
       />
       <AppCard 
         title="Focuzzz" 
         description="Dein Fokus-Timer für maximale Produktivität." 
-        link="#" 
-        icon="⏱️"
+        link="/focuzzz" 
+        icon={FocIcon}
       />
     </div>
   </section>

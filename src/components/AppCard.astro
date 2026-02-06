@@ -1,9 +1,16 @@
 ---
 const { title, description, link, icon } = Astro.props;
+const isImage = typeof icon === 'object';
 ---
 
 <div class="card">
-  <div class="icon">{icon}</div>
+  <div class="icon">
+    {isImage ? (
+      <img src={icon.src} alt={title} class="icon-img" />
+    ) : (
+      <span>{icon}</span>
+    )}
+  </div>
   <h3>{title}</h3>
   <p>{description}</p>
   <a href={link} class="button">Mehr erfahren →</a>
@@ -50,6 +57,16 @@ const { title, description, link, icon } = Astro.props;
     margin-bottom: 1rem;
     display: block;
     transition: transform 0.3s ease;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
   }
 
   .card:hover .icon {

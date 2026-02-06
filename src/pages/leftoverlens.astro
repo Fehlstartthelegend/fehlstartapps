@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LoLIcon from '../assets/LoL_icon.png';
+---
+
+<Layout title="LeftoverLens - KI-Rezepte aus deinen Resten">
+  <div class="app-header">
+    <a href="/" class="back-link">← Zurück</a>
+    <img src={LoLIcon.src} alt="LeftoverLens" class="app-icon" />
+    <h1>LeftoverLens</h1>
+    <p class="tagline">KI-Rezepte aus deinen Resten</p>
+  </div>
+
+  <section class="app-content">
+    <div class="app-section">
+      <h2>Was ist LeftoverLens?</h2>
+      <p>
+        LeftoverLens nutzt künstliche Intelligenz, um dir kreative und leckere Rezepte zu generieren—basierend auf den Zutaten, die du gerade zu Hause hast. Keine Lebensmittelverschwendung mehr, nur schmackhafte Kreativität!
+      </p>
+    </div>
+
+    <div class="app-section">
+      <h2>Features</h2>
+      <ul class="features-list">
+        <li>🤖 KI-generierte Rezepte personalisiert für deine Zutaten</li>
+        <li>🍳 Schritt-für-Schritt Anleitung</li>
+        <li>⏱️ Zubereitungszeit und Schwierigkeitsstufe</li>
+        <li>♻️ Nachhaltig und umweltfreundlich</li>
+        <li>❤️ Lieblings-Rezepte speichern</li>
+      </ul>
+    </div>
+
+    <div class="app-section">
+      <h2>Warum LeftoverLens?</h2>
+      <p>
+        Etwa ein Drittel der weltweiten Lebensmittel werden verschwendet. Mit LeftoverLens kannst du:
+      </p>
+      <ul class="benefits-list">
+        <li>Geld sparen durch clevere Resteverwertung</li>
+        <li>Die Umwelt schützen</li>
+        <li>Neue Lieblings-Rezepte entdecken</li>
+        <li>Kochen wird zum Abenteuer, nicht zur Routine</li>
+      </ul>
+    </div>
+
+    <div class="cta-section">
+      <h2>Bereit, deine Reste zu verwandeln?</h2>
+      <p>LeftoverLens ist noch in der Entwicklung. Bleib dran für den Launch!</p>
+      <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button">
+        Unterstütze die Entwicklung ☕
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .app-header {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: #a78bfa;
+  }
+
+  .app-icon {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+  }
+
+  .app-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    color: #d1d5db;
+  }
+
+  .app-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  .app-section {
+    margin-bottom: 4rem;
+  }
+
+  .app-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #e5e7eb;
+  }
+
+  .app-section p {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .features-list,
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .features-list li,
+  .benefits-list li {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(167, 139, 250, 0.05));
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .cta-section h2 {
+    color: #e5e7eb;
+  }
+
+  .cta-section p {
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .app-header {
+      padding: 2rem 1.5rem;
+    }
+
+    .app-header h1 {
+      font-size: 2rem;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+    }
+
+    .app-section h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
