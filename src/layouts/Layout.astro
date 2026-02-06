@@ -1,23 +1,164 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<nav class="navbar">
+			<div class="nav-container">
+				<a href="/" class="logo">✨ Fehlstart</a>
+				<ul class="nav-links">
+					<li><a href="#apps">Apps</a></li>
+					<li><a href="#support" class="btn-support">Unterstützung</a></li>
+				</ul>
+			</div>
+		</nav>
+		<main>
+			<slot />
+		</main>
+		<footer class="footer">
+			<div class="footer-content">
+				<p>&copy; 2026 Fehlstart Apps. Crafted with ❤️ by a passionate app developer.</p>
+				<div class="footer-links">
+					<a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+					<a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+					<a href="mailto:contact@fehlstart.dev">Email</a>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
 
-<style>
+<style is:global>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
 	html,
 	body {
-		margin: 0;
 		width: 100%;
 		height: 100%;
+		background-color: #0a0e27;
+		color: #e5e7eb;
+		font-family: 'Inter', sans-serif;
+		line-height: 1.6;
+	}
+
+	a {
+		color: #60a5fa;
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	a:hover {
+		color: #93c5fd;
+	}
+
+	/* Navbar */
+	.navbar {
+		position: sticky;
+		top: 0;
+		background: rgba(10, 14, 39, 0.95);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+		z-index: 100;
+	}
+
+	.nav-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 1rem 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		font-size: 1.5rem;
+		font-weight: 800;
+		background: linear-gradient(135deg, #60a5fa, #a78bfa);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		transition: transform 0.3s ease;
+	}
+
+	.logo:hover {
+		transform: scale(1.05);
+	}
+
+	.nav-links {
+		list-style: none;
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.nav-links a {
+		font-weight: 500;
+		transition: color 0.3s ease;
+	}
+
+	.btn-support {
+		background: linear-gradient(135deg, #60a5fa, #a78bfa);
+		color: white !important;
+		padding: 0.5rem 1.5rem;
+		border-radius: 8px;
+		font-weight: 600;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.btn-support:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+		color: white !important;
+	}
+
+	/* Main*/
+	main {
+	flex: 1;
+	}
+
+	/* Footer */
+	.footer {
+		margin-top: 6rem;
+		border-top: 1px solid rgba(96, 165, 250, 0.1);
+		background: linear-gradient(180deg, transparent, rgba(96, 165, 250, 0.05));
+		padding: 3rem 2rem;
+	}
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.footer-content p {
+		color: #9ca3af;
+		margin-bottom: 1rem;
+	}
+
+	.footer-links {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+	}
+
+	.footer-links a {
+		color: #9ca3af;
+		transition: color 0.3s ease;
+	}
+
+	.footer-links a:hover {
+		color: #60a5fa;
 	}
 </style>

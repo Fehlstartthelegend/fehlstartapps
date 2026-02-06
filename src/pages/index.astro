@@ -3,11 +3,33 @@ import Layout from '../layouts/Layout.astro';
 import AppCard from '../components/AppCard.astro';
 ---
 
-<Layout title="Fehlstart the legend - App Developer">
-  <main>
-    <h1>Meine Apps</h1>
+<Layout title="Fehlstart - App Developer">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">✨ Welcome to my app universe</div>
+      <h1>Building Apps That Matter</h1>
+      <p>Ich entwickle intuitive, schöne Apps für deine digitale Welt. Jedes Projekt ist ein Meisterwerk der Kreativität und Funktionalität.</p>
+      <div class="hero-buttons">
+        <a href="#apps" class="btn btn-primary">Meine Apps Erkunden</a>
+        <a href="#support" class="btn btn-secondary">Hier unterstützen</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="gradient-blob blob-1"></div>
+      <div class="gradient-blob blob-2"></div>
+      <div class="gradient-blob blob-3"></div>
+    </div>
+  </section>
+
+  <!-- Apps Section -->
+  <section id="apps" class="apps-section">
+    <div class="section-header">
+      <h2>Meine App-Kreationen</h2>
+      <p>Vier innovative Apps, die dein Leben leichter machen</p>
+    </div>
     
-    <div class="grid">
+    <div class="apps-grid">
       <AppCard 
         title="LeftoverLens" 
         description="KI-Rezepte aus deinen Resten." 
@@ -26,50 +48,269 @@ import AppCard from '../components/AppCard.astro';
         link="#" 
         icon="💤"
       />
-	  <AppCard 
+      <AppCard 
         title="Focuzzz" 
         description="Dein Fokus-Timer für maximale Produktivität." 
         link="#" 
         icon="⏱️"
       />
     </div>
+  </section>
 
-    <section class="coffee">
+  <!-- Support Section -->
+  <section id="support" class="support-section">
+    <div class="support-content">
       <h2>Unterstütze meine Arbeit</h2>
-      <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank">
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+      <p>Wenn dir meine Apps gefallen, kannst du mich hier unterstützen:</p>
+      <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="support-link">
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" />
       </a>
-    </section>
-  </main>
+      <p class="support-text">☕ Eine Tasse Kaffee hilft mir, bessere Apps zu entwickeln!</p>
+    </div>
+  </section>
 </Layout>
 
 <style>
-	main {
-    margin: auto;
-    padding: 4rem 2rem;
-    max-width: 1000px;
-    font-family: 'Inter', sans-serif;
-    color: #fff;
-    background-color: #0f172a; /* Ein schickes Dunkelblau/Schwarz */
-}
+  .hero {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-h1 {
-    font-size: 3rem;
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
     font-weight: 800;
-    text-align: center;
-    margin-bottom: 3rem;
-    background: linear-gradient(to right, #38bdf8, #818cf8);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+    background-clip: text;
+  }
 
-.grid {
+  .hero p {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+  }
+
+  .btn-secondary {
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    color: #60a5fa;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(96, 165, 250, 0.2);
+    border-color: rgba(96, 165, 250, 0.5);
+  }
+
+  .hero-visual {
+    position: relative;
+    height: 400px;
+  }
+
+  .gradient-blob {
+    position: absolute;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    opacity: 0.3;
+    animation: blob 8s infinite;
+  }
+
+  .blob-1 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    top: 0;
+    right: 0;
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+    bottom: 0;
+    left: 0;
+    animation-delay: 2s;
+  }
+
+  .blob-3 {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #ec4899, #f472b6);
+    top: 50%;
+    right: 20%;
+    animation-delay: 4s;
+  }
+
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  /* Apps Section */
+  .apps-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: #9ca3af;
+  }
+
+  .apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
-    margin-bottom: 5rem;
-}
-  main { margin: auto; padding: 2rem; max-width: 800px; color: #333; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .coffee { margin-top: 4rem; text-align: center; }
+  }
+
+  /* Support Section */
+  .support-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .support-content {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(167, 139, 250, 0.05));
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .support-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #e5e7eb;
+  }
+
+  .support-content p {
+    color: #d1d5db;
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+  }
+
+  .support-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .support-link:hover {
+    transform: scale(1.05);
+  }
+
+  .support-link img {
+    height: 60px;
+    width: auto;
+  }
+
+  .support-text {
+    display: block;
+    margin-top: 1.5rem;
+    color: #9ca3af;
+    font-size: 0.95rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 3rem 1.5rem;
+      gap: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-visual {
+      height: 250px;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .section-header h2 {
+      font-size: 1.75rem;
+    }
+
+    .apps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

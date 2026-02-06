@@ -1,5 +1,4 @@
 ---
-// src/components/AppCard.astro
 const { title, description, link, icon } = Astro.props;
 ---
 
@@ -7,27 +6,85 @@ const { title, description, link, icon } = Astro.props;
   <div class="icon">{icon}</div>
   <h3>{title}</h3>
   <p>{description}</p>
-  <a href={link} class="button">Mehr erfahren</a>
+  <a href={link} class="button">Mehr erfahren →</a>
 </div>
 
 <style>
   .card {
-    border: 1px solid #444;
-    padding: 2rem;
-    border-radius: 12px;
-    background: #1a1a1a;
-    color: white;
+    background: linear-gradient(135deg, rgba(30, 41, 82, 0.8), rgba(55, 48, 163, 0.4));
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
     text-align: center;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
   }
-  .card:hover { transform: scale(1.05); }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 20px 50px rgba(96, 165, 250, 0.2);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .icon {
+    transform: scale(1.2) rotate(10deg);
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #e5e7eb;
+  }
+
+  .card p {
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   .button {
     display: inline-block;
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background: #0070f3;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  .button:hover {
+    transform: translateX(4px);
+    box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
   }
 </style>
