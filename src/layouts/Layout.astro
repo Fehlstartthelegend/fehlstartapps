@@ -19,7 +19,15 @@ const { title = "Fehlstart" } = Astro.props;
 			<div class="nav-container">
 				<a href="/" class="logo">Fehlstart Apps</a>
 				<ul class="nav-links">
-					<li><a href="#apps">Apps</a></li>
+					<li class="nav-item dropdown">
+						<a href="#apps" class="nav-link">Apps</a>
+						<ul class="dropdown-menu" aria-label="Apps">
+							<li><a href="/leftoverlens">LeftoverLens</a></li>
+							<li><a href="/sackheld">SackHeld</a></li>
+							<li><a href="/sleepsync">SleepSync</a></li>
+							<li><a href="/focuzzz">Focuzzz</a></li>
+						</ul>
+					</li>
 					<li><a href="#support" class="btn-support">Unterstützung</a></li>
 				</ul>
 			</div>
@@ -110,6 +118,58 @@ const { title = "Fehlstart" } = Astro.props;
 	.nav-links a {
 		font-weight: 500;
 		transition: color 0.3s ease;
+	}
+
+	/* Dropdown menu for Apps */
+	.nav-item {
+		position: relative;
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 0;
+		min-width: 200px;
+		background: linear-gradient(180deg, rgba(15,23,42,0.98), rgba(20,25,50,0.98));
+		border: 1px solid rgba(96,165,250,0.08);
+		backdrop-filter: blur(8px);
+		padding: 0.5rem;
+		border-radius: 10px;
+		box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+		list-style: none;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-6px);
+		transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+		z-index: 120;
+	}
+
+	.dropdown-menu li {
+		padding: 0.25rem 0.5rem;
+	}
+
+	.dropdown-menu a {
+		display: block;
+		padding: 0.45rem 0.75rem;
+		color: #e5e7eb;
+		border-radius: 8px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: background 0.18s ease, color 0.18s ease;
+	}
+
+	.dropdown-menu a:hover,
+	.dropdown-menu a:focus {
+		background: rgba(96,165,250,0.07);
+		color: #93c5fd;
+	}
+
+	/* Show on hover or keyboard focus */
+	.nav-item:hover .dropdown-menu,
+	.nav-item:focus-within .dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
 	}
 
 	.btn-support {
