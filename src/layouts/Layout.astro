@@ -45,6 +45,35 @@ const { title = "Fehlstart" } = Astro.props;
 				</div>
 			</div>
 		</footer>
+
+		<script>
+			// Toggle dropdown on click while preserving hover behavior
+			(() => {
+				const navItem = document.querySelector('.nav-item.dropdown');
+				if (!navItem) return;
+				const trigger = navItem.querySelector('.nav-link');
+
+				// Toggle 'open' class on click (keeps menu visible)
+				trigger.addEventListener('click', (ev) => {
+					// allow default anchor behavior (scroll to #apps) but toggle menu too
+					navItem.classList.toggle('open');
+				});
+
+				// Close when clicking outside
+				document.addEventListener('click', (ev) => {
+					if (!navItem.classList.contains('open')) return;
+					if (!navItem.contains(ev.target)) {
+						navItem.classList.remove('open');
+					}
+				});
+
+				// Close on Escape for accessibility
+				document.addEventListener('keydown', (ev) => {
+					if (ev.key === 'Escape') navItem.classList.remove('open');
+				});
+			})();
+		</script>
+
 	</body>
 </html>
 
@@ -167,6 +196,13 @@ const { title = "Fehlstart" } = Astro.props;
 	/* Show on hover or keyboard focus */
 	.nav-item:hover .dropdown-menu,
 	.nav-item:focus-within .dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	/* Also show when toggled via click (keeps dropdown open after click) */
+	.nav-item.open .dropdown-menu {
 		opacity: 1;
 		visibility: visible;
 		transform: translateY(0);

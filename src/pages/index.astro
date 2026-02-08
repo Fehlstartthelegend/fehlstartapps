@@ -4,6 +4,7 @@ import AppCard from '../components/AppCard.astro';
 import LoLIcon from '../assets/LoL_icon.png';
 import SHIcon from '../assets/SH_Held.png';
 import FocIcon from '../assets/Foc_icon.png';
+import SSIcon from '../assets/SS_icon.png';
 ---
 
 <Layout title="Fehlstart - App Developer">
@@ -12,11 +13,11 @@ import FocIcon from '../assets/Foc_icon.png';
     <div class="hero-content">
       <div class="badge">Willkommen in meinem Kopf</div>
       <h1>building apps<br>that matter</h1>
-      <p>Ich versuche mit meinen Apps intuitive,<br>schöne Helfer für deine digitale Welt zu schaffen.<br>Hinterlasse hier gerne dein Feedback<br>oder Verbesserungsvorschläge!</p>
-      <div class="hero-buttons">
+      <p>Ich entwickle intuitive Lösungen für die<br>Herausforderungen des digitalen Alltags.<br>Hinterlasse hier gerne dein Feedback<br>oder Verbesserungsvorschläge!</p>
+      <!--<div class="hero-buttons">
         <a href="#apps" class="btn btn-primary">Meine Apps Erkunden</a>
         <a href="#support" class="btn btn-secondary">Hier unterstützen</a>
-      </div>
+      </div>-->
     </div>
     <div class="hero-visual">
       <div class="gradient-blob blob-1"></div>
@@ -28,7 +29,7 @@ import FocIcon from '../assets/Foc_icon.png';
   <!-- Apps Section -->
   <section id="apps" class="apps-section">
     <div class="section-header">
-      <h2>Meine bisherigen Apps</h2>
+      <h2>Meine bisherigen Kreationen</h2>
       <p>Apps, die dein Leben (hoffentlich) besser machen</p>
     </div>
     
@@ -49,7 +50,7 @@ import FocIcon from '../assets/Foc_icon.png';
         title="SleepSync" 
         description="Finde deinen perfekten Schlaf." 
         link="/sleepsync" 
-        icon="💤"
+        icon={SSIcon}
       />
       <AppCard 
         title="Focuzzz" 
@@ -172,7 +173,7 @@ import FocIcon from '../assets/Foc_icon.png';
   .blob-1 {
     width: 200px;
     height: 200px;
-    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    background: linear-gradient(135deg, #21fff4, #55d4d4);
     top: 0;
     right: 0;
     animation-delay: 0s;
@@ -181,16 +182,16 @@ import FocIcon from '../assets/Foc_icon.png';
   .blob-2 {
     width: 250px;
     height: 250px;
-    background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+    background: linear-gradient(135deg, #6532ff, #7965a7);
     bottom: 0;
     left: 0;
-    animation-delay: 2s;
+    animation-delay: 2;
   }
 
   .blob-3 {
     width: 180px;
     height: 180px;
-    background: linear-gradient(135deg, #ec4899, #f472b6);
+    background: linear-gradient(135deg, #ff3c9d, #f0a9ce);
     top: 50%;
     right: 20%;
     animation-delay: 4s;
