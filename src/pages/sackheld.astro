@@ -1,63 +1,84 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SHIcon from '../assets/SH_Held.png';
 ---
 
-<Layout title="SackHeld - Sparbrowser für Finanzielle Ziele">
+<Layout title="SackHeld - Deine Finanzen heldenhaft im Griff">
   <div class="app-header">
     <a href="/" class="back-link">← Zurück</a>
-    <img src={SHIcon.src} alt="SackHeld" class="app-icon" />
+    
+    <div class="app-icon-container">
+        <span class="app-icon-emoji">💰</span>
+    </div>
+
     <h1>SackHeld</h1>
-    <p class="tagline">Sparziele spielend leicht verwalten und Budgetierung lernen</p>
+    <p class="tagline">Keine Lust auf komplizierte Banking-Apps? <br>Einfaches Budgeting für echte Spar-Helden.</p>
   </div>
 
   <section class="app-content">
+    
     <div class="app-section">
-      <h2>Was ist SackHeld?</h2>
+      <h2>Behalte den Überblick</h2>
       <p>
-        SackHeld macht Sparen zum Spiel! Mit gamifizierten Challenges und alltäglichen Budgetierungstipps lernst du spielerisch, deine finanzielle Gesundheit zu verbessern. Egal ob Anfänger oder Profi – SackHeld passt sich dir an.
+        Wusstest du, dass am Ende des Geldes oft noch zu viel Monat übrig ist? 
+        <strong>SackHeld</strong> (in DE/AT bekannt als <strong>TaschenHeld</strong>) hilft dir dabei, deine Einnahmen und Ausgaben 
+        blitzschnell zu erfassen. Keine Tabellen-Wüste, sondern eine klare Sicht auf dein verfügbares Budget.
       </p>
     </div>
 
     <div class="app-section">
-      <h2>Features</h2>
+      <h2>Funktionen</h2>
       <ul class="features-list">
-        <li>🏆 Sparziele mit Gamification-Elementen</li>
-        <li>📊 Visuelle Finanz-Analysen und Fortschritt-Tracking</li>
-        <li>💡 Tägliche Tipps zum Geldsparen</li>
-        <li>🎮 Challenges und Achievements</li>
-        <li>📈 Budgetplanung für jeden Monat</li>
-        <li>👥 Teile deine Erfolge mit Freunden</li>
+        <li>📊 <strong>Smart Budgeting:</strong> Erfasse Ausgaben in Sekunden und sieh sofort, was dir diesen Monat noch bleibt.</li>
+        <li>🎯 <strong>Sparziele:</strong> Setze dir Ziele für Ferien oder Anschaffungen und verfolge visuell deinen Fortschritt.</li>
+        <li>☁️ <strong>Google Drive Sync:</strong> Deine Daten gehören dir. Sichere dein Backup einfach in deinem eigenen Google Drive.</li>
+        <li>📄 <strong>PDF-Berichte:</strong> Erstelle auf Knopfdruck übersichtliche Auswertungen deiner Finanzen.</li>
       </ul>
     </div>
 
     <div class="app-section">
       <h2>Warum SackHeld?</h2>
       <p>
-        Viele Menschen wissen nicht, wie sie anfangen sollen zu sparen. SackHeld macht es einfach:
+        Finanz-Apps müssen nicht kompliziert sein oder deine Daten verkaufen.
       </p>
       <ul class="benefits-list">
-        <li>Einfache, spielerische Finanzbildung</li>
-        <li>Konkrete Ziele statt vager Vorsätze</li>
-        <li>Motivierendes Feedback und Achievements</li>
-        <li>Bessere finanzielle Entscheidungen treffen</li>
+        <li>🔒 <strong>100% Privat:</strong> Alle Daten bleiben lokal auf deinem Gerät oder in deinem privaten Cloud-Speicher.</li>
+        <li>🚫 <strong>Kein Abo-Zwang:</strong> Keine monatlichen Kosten. Alle Kernfeatures sind frei zugänglich.</li>
+        <li>🇨🇭 <strong>Einfachheit:</strong> Fokus auf das Wesentliche, ohne unnötigen Ballast.</li>
       </ul>
     </div>
 
     <div class="cta-section">
-      <h2>Starte deine Sparreise jetzt!</h2>
-      <p>SackHeld ist noch in der Entwicklung. Wir kommen bald!</p>
+      <h2>Unterstütze das Projekt</h2>
+      <p>
+        SackHeld ist ein Herzensprojekt und kommt ohne nervige Abos aus. Wenn dir die App hilft, 
+        dein Budget besser zu planen, freue ich mich über einen virtuellen Kaffee. Das hält die Entwicklung am Laufen!
+      </p>
       <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button">
-        Unterstütze die Entwicklung ☕
+        Einen Kaffee spendieren ☕
       </a>
+      <p class="small-print">Verfügbar für Android & bald für iOS.</p>
     </div>
+
   </section>
 </Layout>
 
 <style>
+  /* --- Globale Farben EXAKT nach Flutter-Code (Color(0xFF00796B)) --- */
+  :root {
+    --primary-teal: #00796B;
+    --secondary-teal: #26A69A;
+    --primary-gradient: linear-gradient(135deg, #00796B, #26A69A);
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --accent-glow: rgba(0, 121, 107, 0.2);
+    --border-color: #e2e8f0;
+  }
+
   .app-header {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -65,36 +86,49 @@ import SHIcon from '../assets/SH_Held.png';
   .back-link {
     display: inline-block;
     margin-bottom: 2rem;
-    color: #60a5fa;
+    color: var(--primary-teal);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
   }
 
   .back-link:hover {
-    color: #a78bfa;
+    color: var(--secondary-teal);
   }
 
-  .app-icon {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 2rem;
+  .app-icon-container {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 20px var(--accent-glow));
+  }
+
+  .app-icon-emoji {
+    font-size: 80px;
+    display: block;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
   }
 
   .app-header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    background: var(--primary-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -1px;
   }
 
   .tagline {
-    font-size: 1.5rem;
-    color: #d1d5db;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 
   .app-content {
@@ -108,84 +142,90 @@ import SHIcon from '../assets/SH_Held.png';
   }
 
   .app-section h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: #e5e7eb;
+    color: var(--text-main);
+    border-left: 4px solid var(--primary-teal);
+    padding-left: 1rem;
   }
 
   .app-section p {
-    font-size: 1.125rem;
-    color: #d1d5db;
+    font-size: 1.1rem;
+    color: var(--text-muted);
     line-height: 1.8;
-    margin-bottom: 1rem;
   }
 
   .features-list,
   .benefits-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 1.5rem 0;
   }
 
   .features-list li,
   .benefits-list li {
-    font-size: 1.125rem;
-    color: #d1d5db;
-    padding: 0.75rem 0;
-    padding-left: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  
+  .features-list li:hover {
+    transform: translateX(5px);
+    border-color: var(--primary-teal);
+  }
+
+  .features-list li strong {
+    color: var(--primary-teal);
   }
 
   .cta-section {
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(167, 139, 250, 0.05));
-    border: 1px solid rgba(96, 165, 250, 0.2);
-    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(0, 121, 107, 0.05), rgba(38, 166, 154, 0.1));
+    border: 1px solid rgba(0, 121, 107, 0.2);
+    border-radius: 24px;
     padding: 3rem 2rem;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
 
   .cta-section h2 {
-    color: #e5e7eb;
-  }
-
-  .cta-section p {
-    color: #d1d5db;
-    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    border: none;
+    padding: 0;
+    font-size: 2rem;
   }
 
   .cta-button {
     display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    color: white;
+    padding: 1rem 2.5rem;
+    background: var(--primary-gradient);
+    color: #ffffff;
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3);
   }
 
   .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 121, 107, 0.4);
+  }
+  
+  .small-print {
+    margin-top: 1.5rem;
+    font-size: 0.85rem !important;
+    opacity: 0.6;
   }
 
   @media (max-width: 768px) {
-    .app-header {
-      padding: 2rem 1.5rem;
-    }
-
-    .app-header h1 {
-      font-size: 2rem;
-    }
-
-    .tagline {
-      font-size: 1.125rem;
-    }
-
-    .app-section h2 {
-      font-size: 1.5rem;
-    }
+    .app-header h1 { font-size: 2.5rem; }
   }
 </style>

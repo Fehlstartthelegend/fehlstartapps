@@ -2,61 +2,81 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="SleepSync - Optimiere deinen Schlafzyklus">
+<Layout title="SleepSync - Der Biohack für deinen Schlaf">
   <div class="app-header">
     <a href="/" class="back-link">← Zurück</a>
-    <div class="app-icon-emoji">💤</div>
+    
+    <div class="app-icon-container">
+       <span class="app-icon-emoji">🌙</span>
+    </div>
+
     <h1>SleepSync</h1>
-    <p class="tagline">Optimiere deinen Schlafzyklus und finde deinen perfekten Schlaf</p>
+    <p class="tagline">Kein gewöhnlicher Wecker. <br>Dein wissenschaftlicher Schlaf-Algorithmus.</p>
   </div>
 
   <section class="app-content">
+    
     <div class="app-section">
-      <h2>Was ist SleepSync?</h2>
+      <h2>Der Rhythmus macht den Unterschied</h2>
       <p>
-        SleepSync nutzt Bewegungs- und Umgebungsdaten, um deinen natürlichen Schlafzyklus zu analysieren und zu optimieren. Mit personalizierten Empfehlungen schläfst du besser, wachst erfrischter auf und steigerst deine Lebensqualität.
+        Wachst du oft gerädert auf, obwohl du lange geschlafen hast? Das liegt an der <strong>Sleep Inertia</strong>. 
+        SleepSync berechnet deine Schlafenszeit basierend auf wissenschaftlichen <strong>90-Minuten-Zyklen</strong>. 
+        Wir wecken dich nicht, wenn du schläfst – wir sagen dir, wann du ins Bett gehen musst, um perfekt aufzuwachen.
       </p>
     </div>
 
     <div class="app-section">
-      <h2>Features</h2>
+      <h2>Funktionen</h2>
       <ul class="features-list">
-        <li>📱 Automatische Schlaftracking durch dein Smartphone</li>
-        <li>🔄 Zirkadianer Rhythmus-Analyse</li>
-        <li>💧 Hydrations- und Ernährungstipps für besseren Schlaf</li>
-        <li>🌙 Personalisierte Gute-Nacht-Routinen</li>
-        <li>📊 Detaillierte Schlafstatistiken und Trends</li>
-        <li>🎵 Entspannungsmusik und Einschlafhilfen</li>
+        <li>🧬 <strong>Ultradiane Zyklen:</strong> Berechnung der optimalen Bettzeit (4, 5 oder 6 Zyklen).</li>
+        <li>📉 <strong>5-Minuten-Shift:</strong> Ein intelligenter Algorithmus, der deine Bettzeit sanft anpasst, bis du deinen Sweet-Spot gefunden hast.</li>
+        <li>📝 <strong>Morgen-Journal:</strong> Bewerte deine Energie und tracke Faktoren wie Koffein oder Sport.</li>
+        <li>🌑 <strong>Melatonin-Safe:</strong> Ein komplett dunkles "OLED-friendly" Design, das dich abends nicht wach hält.</li>
+        <li>🧠 <strong>Daily Knowledge:</strong> Lerne jeden Tag einen neuen wissenschaftlichen Fakt über Schlaf.</li>
       </ul>
     </div>
 
     <div class="app-section">
       <h2>Warum SleepSync?</h2>
       <p>
-        Qualitätsschlaf ist das Fundament für Gesundheit und Produktivität. SleepSync hilft dir:
+        Die meisten Apps wollen deine Daten verkaufen oder nerven mit Abos. SleepSync ist anders.
       </p>
       <ul class="benefits-list">
-        <li>Schlafprobleme verstehen und beheben</li>
-        <li>Morgens erfrischter aufwachen</li>
-        <li>Fokus und Energie tagsüber verbessern</li>
-        <li>Langfristige Schlafgesundheit aufbauen</li>
+        <li>🔒 <strong>100% Privat:</strong> Alle Daten bleiben lokal auf deinem Gerät (Hive Database).</li>
+        <li>🚫 <strong>Kein Abo:</strong> Nutze alle Features kostenlos.</li>
+        <li>🔋 <strong>Akku-Schonend:</strong> Kein nächtliches Mikrofon- oder Sensor-Tracking.</li>
       </ul>
     </div>
 
     <div class="cta-section">
-      <h2>Schlafen Sie besser heute!</h2>
-      <p>SleepSync ist noch in der Entwicklung. Dein besserer Schlaf wartet!</p>
+      <h2>Unterstütze das Projekt</h2>
+      <p>
+        SleepSync ist "Donationware". Wenn dir die App hilft, deinen Rhythmus zu finden, 
+        freue ich mich über einen virtuellen Kaffee. Das hält die Entwicklung am Laufen!
+      </p>
       <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button">
-        Unterstütze die Entwicklung ☕
+        Einen Kaffee spendieren ☕
       </a>
+      <p class="small-print">Verfügbar für Android (Sideload) & bald iOS.</p>
     </div>
+
   </section>
 </Layout>
 
 <style>
+  /* --- Globale Farben passend zur Flutter App (Teal/Indigo) --- */
+  :root {
+    --primary-gradient: linear-gradient(135deg, #2dd4bf, #818cf8); /* Teal zu Indigo */
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --text-main: #ffffff;
+    --text-muted: #9ca3af;
+    --accent-glow: rgba(45, 212, 191, 0.3);
+  }
+
   .app-header {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -64,34 +84,49 @@ import Layout from '../layouts/Layout.astro';
   .back-link {
     display: inline-block;
     margin-bottom: 2rem;
-    color: #60a5fa;
+    color: #818cf8;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
   }
 
   .back-link:hover {
-    color: #a78bfa;
+    color: #2dd4bf;
+  }
+
+  .app-icon-container {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 20px var(--accent-glow));
   }
 
   .app-icon-emoji {
-    font-size: 120px;
-    margin-bottom: 2rem;
+    font-size: 80px;
+    display: block;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
   }
 
   .app-header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    background: var(--primary-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -1px;
   }
 
   .tagline {
-    font-size: 1.5rem;
-    color: #d1d5db;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 
   .app-content {
@@ -105,19 +140,22 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .app-section h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: #e5e7eb;
+    color: var(--text-main);
+    border-left: 4px solid #818cf8; /* Indigo Akzent links */
+    padding-left: 1rem;
   }
 
   .app-section p {
-    font-size: 1.125rem;
-    color: #d1d5db;
+    font-size: 1.1rem;
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 1rem;
   }
 
+  /* Listen Styling */
   .features-list,
   .benefits-list {
     list-style: none;
@@ -127,45 +165,86 @@ import Layout from '../layouts/Layout.astro';
 
   .features-list li,
   .benefits-list li {
-    font-size: 1.125rem;
-    color: #d1d5db;
-    padding: 0.75rem 0;
-    padding-left: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #e5e7eb;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .features-list li:hover {
+    transform: translateX(5px);
+    border-color: rgba(129, 140, 248, 0.3);
   }
 
+  .features-list li strong,
+  .benefits-list li strong {
+    color: #2dd4bf; /* Teal Highlight */
+  }
+
+  /* CTA Card Styling */
   .cta-section {
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(167, 139, 250, 0.05));
-    border: 1px solid rgba(96, 165, 250, 0.2);
-    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(129, 140, 248, 0.1));
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 24px;
     padding: 3rem 2rem;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Glanzeffekt für die Card */
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   }
 
   .cta-section h2 {
-    color: #e5e7eb;
+    color: var(--text-main);
+    border: none;
+    padding: 0;
+    font-size: 2rem;
   }
 
   .cta-section p {
     color: #d1d5db;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-button {
     display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    color: white;
+    padding: 1rem 2.5rem;
+    background: var(--primary-gradient);
+    color: #000; /* Schwarzer Text auf hellem Button liest sich besser */
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(45, 212, 191, 0.4);
   }
 
   .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 8px 25px rgba(129, 140, 248, 0.5);
+  }
+  
+  .small-print {
+    margin-top: 1.5rem;
+    font-size: 0.85rem !important;
+    opacity: 0.5;
   }
 
   @media (max-width: 768px) {
@@ -174,15 +253,15 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .app-header h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
     .tagline {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
-
-    .app-section h2 {
-      font-size: 1.5rem;
+    
+    .cta-section {
+      padding: 2rem 1.5rem;
     }
   }
 </style>

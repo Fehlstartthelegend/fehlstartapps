@@ -1,62 +1,84 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import LoLIcon from '../assets/LoL_icon.png';
 ---
 
-<Layout title="LeftoverLens - KI-Rezepte aus deinen Resten">
+<Layout title="LeftoverLens - Koche lecker, verschwende weniger">
   <div class="app-header">
     <a href="/" class="back-link">← Zurück</a>
-    <img src={LoLIcon.src} alt="LeftoverLens" class="app-icon" />
+    
+    <div class="app-icon-container">
+       <span class="app-icon-emoji">🥗</span>
+    </div>
+
     <h1>LeftoverLens</h1>
-    <p class="tagline">KI-Rezepte aus deinen Resten</p>
+    <p class="tagline">Kein gewöhnliches Kochbuch. <br>Dein KI-Küchenchef gegen Food Waste.</p>
   </div>
 
   <section class="app-content">
+    
     <div class="app-section">
-      <h2>Was ist LeftoverLens?</h2>
+      <h2>Der Blick in den Kühlschrank</h2>
       <p>
-        LeftoverLens nutzt künstliche Intelligenz, um dir kreative und leckere Rezepte zu generieren—basierend auf den Zutaten, die du gerade zu Hause hast. Keine Lebensmittelverschwendung mehr, nur schmackhafte Kreativität!
+        Kennst du das? Der Kühlschrank ist voll, aber du hast <strong>keine Idee</strong>, was du kochen sollst. 
+        Am Ende landen Lebensmittel im Müll. <strong>LeftoverLens</strong> löst dieses Problem mit künstlicher Intelligenz.
+        Scanne deine Reste, erhalte sofort ein passendes Rezept und werde zum Helden deiner Küche (und der Umwelt).
       </p>
     </div>
 
     <div class="app-section">
-      <h2>Features</h2>
+      <h2>Funktionen</h2>
       <ul class="features-list">
-        <li>🤖 KI-generierte Rezepte personalisiert für deine Zutaten</li>
-        <li>🍳 Schritt-für-Schritt Anleitung</li>
-        <li>⏱️ Zubereitungszeit und Schwierigkeitsstufe</li>
-        <li>♻️ Nachhaltig und umweltfreundlich</li>
-        <li>❤️ Lieblings-Rezepte speichern</li>
+        <li>📸 <strong>Scan & Cook:</strong> Richte die Kamera auf deine Zutaten – unsere KI erkennt, was da ist.</li>
+        <li>✨ <strong>Smarte Rezepte:</strong> Erhalte Vorschläge, die genau auf deinen Vorräten basieren. Keine unnötigen Einkäufe mehr.</li>
+        <li>🥑 <strong>Dein Style:</strong> Egal ob Vegan, Glutenfrei, Keto oder "Ich esse alles" – der Algorithmus passt sich dir an.</li>
+        <li>☁️ <strong>Cloud Sync (Pro):</strong> Speichere deine Lieblingsrezepte sicher in der Cloud und nimm sie überall hin mit.</li>
+        <li>💰 <strong>Geld sparen:</strong> Wer Reste verwertet, kauft weniger neu. Gut für den Geldbeutel, gut für den Planeten.</li>
       </ul>
     </div>
 
     <div class="app-section">
       <h2>Warum LeftoverLens?</h2>
       <p>
-        Etwa ein Drittel der weltweiten Lebensmittel werden verschwendet. Mit LeftoverLens kannst du:
+        Andere Rezept-Apps wollen dir exotische Zutaten verkaufen. Wir wollen, dass du das benutzt, was du schon hast.
       </p>
       <ul class="benefits-list">
-        <li>Geld sparen durch clevere Resteverwertung</li>
-        <li>Die Umwelt schützen</li>
-        <li>Neue Lieblings-Rezepte entdecken</li>
-        <li>Kochen wird zum Abenteuer, nicht zur Routine</li>
+        <li>🔒 <strong>Privacy First:</strong> Free-User bleiben komplett lokal (Hive Database). Deine Daten gehören dir.</li>
+        <li>🚀 <strong>Schnell & Einfach:</strong> Kein langes Suchen. Foto machen, kochen, genießen.</li>
+        <li>🌍 <strong>Nachhaltig:</strong> Reduziere deinen persönlichen Food Waste spielend leicht.</li>
       </ul>
     </div>
 
     <div class="cta-section">
-      <h2>Bereit, deine Reste zu verwandeln?</h2>
-      <p>LeftoverLens ist noch in der Entwicklung. Bleib dran für den Launch!</p>
-      <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button">
-        Unterstütze die Entwicklung ☕
+      <h2>Werde Teil der Bewegung</h2>
+      <p>
+        LeftoverLens ist mehr als nur eine App – es ist ein Werkzeug für bewussteren Konsum. 
+        Starte jetzt kostenlos und verwandle Reste in 5-Sterne-Gerichte.
+      </p>
+      <a href="#" class="cta-button">
+        Jetzt kostenlos laden 📲
       </a>
+      <p class="small-print">Verfügbar für Android & bald iOS.</p>
     </div>
+
   </section>
 </Layout>
 
 <style>
+  /* --- Globale Farben passend zu LeftoverLens (Grün/Orange) --- */
+  :root {
+    /* Verlauf von "Fresh Green" zu "Tasty Orange" */
+    --primary-gradient: linear-gradient(135deg, #34d399, #fbbf24); 
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --text-main: #ffffff;
+    --text-muted: #9ca3af;
+    --accent-glow: rgba(52, 211, 153, 0.3); /* Grüner Glow */
+    --accent-color: #fbbf24; /* Orange Akzent */
+  }
+
   .app-header {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -64,36 +86,49 @@ import LoLIcon from '../assets/LoL_icon.png';
   .back-link {
     display: inline-block;
     margin-bottom: 2rem;
-    color: #60a5fa;
+    color: #34d399; /* Grün */
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
   }
 
   .back-link:hover {
-    color: #a78bfa;
+    color: #fbbf24; /* Orange bei Hover */
   }
 
-  .app-icon {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 2rem;
+  .app-icon-container {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 20px var(--accent-glow));
+  }
+
+  .app-icon-emoji {
+    font-size: 80px;
+    display: block;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
   }
 
   .app-header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    background: var(--primary-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -1px;
   }
 
   .tagline {
-    font-size: 1.5rem;
-    color: #d1d5db;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 
   .app-content {
@@ -107,19 +142,22 @@ import LoLIcon from '../assets/LoL_icon.png';
   }
 
   .app-section h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: #e5e7eb;
+    color: var(--text-main);
+    border-left: 4px solid #34d399; /* Grüner Akzent links */
+    padding-left: 1rem;
   }
 
   .app-section p {
-    font-size: 1.125rem;
-    color: #d1d5db;
+    font-size: 1.1rem;
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 1rem;
   }
 
+  /* Listen Styling */
   .features-list,
   .benefits-list {
     list-style: none;
@@ -129,45 +167,86 @@ import LoLIcon from '../assets/LoL_icon.png';
 
   .features-list li,
   .benefits-list li {
-    font-size: 1.125rem;
-    color: #d1d5db;
-    padding: 0.75rem 0;
-    padding-left: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #e5e7eb;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .features-list li:hover {
+    transform: translateX(5px);
+    border-color: rgba(52, 211, 153, 0.3); /* Grüner Border bei Hover */
   }
 
+  .features-list li strong,
+  .benefits-list li strong {
+    color: #fbbf24; /* Orange Highlight im Text */
+  }
+
+  /* CTA Card Styling */
   .cta-section {
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(167, 139, 250, 0.05));
-    border: 1px solid rgba(96, 165, 250, 0.2);
-    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.1), rgba(251, 191, 36, 0.1));
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 24px;
     padding: 3rem 2rem;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Glanzeffekt für die Card */
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   }
 
   .cta-section h2 {
-    color: #e5e7eb;
+    color: var(--text-main);
+    border: none;
+    padding: 0;
+    font-size: 2rem;
   }
 
   .cta-section p {
     color: #d1d5db;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-button {
     display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    color: white;
+    padding: 1rem 2.5rem;
+    background: var(--primary-gradient);
+    color: #000;
     text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
   }
 
   .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5); /* Orange Shadow bei Hover */
+  }
+  
+  .small-print {
+    margin-top: 1.5rem;
+    font-size: 0.85rem !important;
+    opacity: 0.5;
   }
 
   @media (max-width: 768px) {
@@ -176,15 +255,15 @@ import LoLIcon from '../assets/LoL_icon.png';
     }
 
     .app-header h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
 
     .tagline {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
-
-    .app-section h2 {
-      font-size: 1.5rem;
+    
+    .cta-section {
+      padding: 2rem 1.5rem;
     }
   }
 </style>
