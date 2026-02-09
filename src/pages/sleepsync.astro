@@ -4,13 +4,9 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="SleepSync - Der Biohack für deinen Schlaf">
   <div class="app-header">
-    <a href="/" class="back-link">← Zurück</a>
-    
-    <div class="app-icon-container">
-       <span class="app-icon-emoji">🌙</span>
-    </div>
+     <a href="/" class="back-link">← Zurück</a>
 
-    <h1>SleepSync</h1>
+     <h1>SleepSync</h1>
     <p class="tagline">Kein gewöhnlicher Wecker. <br>Dein wissenschaftlicher Schlaf-Algorithmus.</p>
   </div>
 
@@ -64,204 +60,43 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* --- Globale Farben passend zur Flutter App (Teal/Indigo) --- */
-  :root {
-    --primary-gradient: linear-gradient(135deg, #2dd4bf, #818cf8); /* Teal zu Indigo */
-    --bg-color: #121212;
-    --card-bg: #1E1E1E;
-    --text-main: #ffffff;
-    --text-muted: #9ca3af;
-    --accent-glow: rgba(45, 212, 191, 0.3);
-  }
+  :root { --primary-gradient: linear-gradient(135deg, #2dd4bf, #818cf8); --accent-glow: rgba(45,212,191,0.14); --text-muted: #9ca3af; --card-bg: rgba(255,255,255,0.02); }
 
-  .app-header {
-    text-align: center;
-    padding: 4rem 2rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  .app-header { text-align:center; padding:3.5rem 1.5rem 1.5rem; max-width:1100px; margin:0 auto 1rem; display:flex; flex-direction:column; gap:0.75rem; align-items:center; }
 
-  .back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
-    color: #818cf8;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
+  .back-link { color:#818cf8; font-weight:600; text-decoration:none; align-self:flex-start; transition: color 200ms ease; }
 
-  .back-link:hover {
-    color: #2dd4bf;
-  }
+  .back-link:hover { color: #2dd4bf; }
 
-  .app-icon-container {
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    filter: drop-shadow(0 0 20px var(--accent-glow));
-  }
+  /* icons removed from header */
 
-  .app-icon-emoji {
-    font-size: 80px;
-    display: block;
-    animation: float 6s ease-in-out infinite;
-  }
+  .app-header h1 { font-size:3rem; font-weight:800; margin:0; background:var(--primary-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
+  .tagline { color:var(--text-muted); max-width:64ch; text-align:center; }
 
-  .app-header h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -1px;
-  }
+  .app-content { max-width:880px; margin:0 auto; padding:2rem 1.5rem 4rem; display:grid; gap:1.25rem; }
 
-  .tagline {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .app-section { padding:1.25rem; background:var(--card-bg); border-radius:14px; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 30px rgba(2,6,23,0.45); }
 
-  .app-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem 6rem;
-  }
+  .app-section h2 { font-size:1.4rem; color:#fff; margin-bottom:0.75rem; }
 
-  .app-section {
-    margin-bottom: 4rem;
-  }
+  .app-section p { color:var(--text-muted); line-height:1.75; }
 
-  .app-section h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
-    border-left: 4px solid #818cf8; /* Indigo Akzent links */
-    padding-left: 1rem;
-  }
+  .features-list, .benefits-list { list-style:none; padding:0; margin:0; display:grid; gap:0.75rem; }
 
-  .app-section p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
+  .features-list li, .benefits-list li { display:flex; gap:0.8rem; align-items:flex-start; padding:0.9rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
 
-  /* Listen Styling */
-  .features-list,
-  .benefits-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  .features-list li:hover { transform: translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.6); }
 
-  .features-list li,
-  .benefits-list li {
-    font-size: 1.1rem;
-    color: #e5e7eb;
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.2s ease;
-  }
-  
-  .features-list li:hover {
-    transform: translateX(5px);
-    border-color: rgba(129, 140, 248, 0.3);
-  }
+  .features-list li strong, .benefits-list li strong { color: #2dd4bf; }
 
-  .features-list li strong,
-  .benefits-list li strong {
-    color: #2dd4bf; /* Teal Highlight */
-  }
+  .cta-section { text-align:center; padding:2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
 
-  /* CTA Card Styling */
-  .cta-section {
-    background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(129, 140, 248, 0.1));
-    border: 1px solid rgba(129, 140, 248, 0.2);
-    border-radius: 24px;
-    padding: 3rem 2rem;
-    text-align: center;
-    margin-top: 5rem;
-    position: relative;
-    overflow: hidden;
-  }
+  .cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:999px; font-weight:700; background:var(--primary-gradient); color:#000; text-decoration:none; box-shadow:0 10px 30px rgba(45,212,191,0.12); }
 
-  /* Glanzeffekt für die Card */
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  }
+  .cta-button:hover { transform: translateY(-4px); }
 
-  .cta-section h2 {
-    color: var(--text-main);
-    border: none;
-    padding: 0;
-    font-size: 2rem;
-  }
+  .small-print { margin-top:1rem; color:var(--text-muted); font-size:0.9rem; }
 
-  .cta-section p {
-    color: #d1d5db;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: var(--primary-gradient);
-    color: #000; /* Schwarzer Text auf hellem Button liest sich besser */
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(45, 212, 191, 0.4);
-  }
-
-  .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(129, 140, 248, 0.5);
-  }
-  
-  .small-print {
-    margin-top: 1.5rem;
-    font-size: 0.85rem !important;
-    opacity: 0.5;
-  }
-
-  @media (max-width: 768px) {
-    .app-header {
-      padding: 2rem 1.5rem;
-    }
-
-    .app-header h1 {
-      font-size: 2.5rem;
-    }
-
-    .tagline {
-      font-size: 1rem;
-    }
-    
-    .cta-section {
-      padding: 2rem 1.5rem;
-    }
-  }
+  @media (max-width:720px){ .app-header h1{ font-size:2.2rem } }
 </style>

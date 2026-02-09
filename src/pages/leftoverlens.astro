@@ -6,11 +6,7 @@ import Layout from '../layouts/Layout.astro';
   <div class="app-header">
     <a href="/" class="back-link">← Zurück</a>
     
-    <div class="app-icon-container">
-       <span class="app-icon-emoji">🥗</span>
-    </div>
-
-    <h1>LeftoverLens</h1>
+     <h1>LeftoverLens</h1>
     <p class="tagline">Kein gewöhnliches Kochbuch. <br>Dein KI-Küchenchef gegen Food Waste.</p>
   </div>
 
@@ -64,206 +60,91 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* --- Globale Farben passend zu LeftoverLens (Grün/Orange) --- */
   :root {
-    /* Verlauf von "Fresh Green" zu "Tasty Orange" */
-    --primary-gradient: linear-gradient(135deg, #34d399, #fbbf24); 
-    --bg-color: #121212;
-    --card-bg: #1E1E1E;
-    --text-main: #ffffff;
+    --primary-gradient: linear-gradient(135deg, #34d399, #fbbf24);
+    --accent-glow: rgba(52, 211, 153, 0.18);
     --text-muted: #9ca3af;
-    --accent-glow: rgba(52, 211, 153, 0.3); /* Grüner Glow */
-    --accent-color: #fbbf24; /* Orange Akzent */
+    --card-bg: rgba(255,255,255,0.02);
   }
 
   .app-header {
     text-align: center;
-    padding: 4rem 2rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
   }
 
   .back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
-    color: #34d399; /* Grün */
-    text-decoration: none;
+    color: #34d399;
     font-weight: 600;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    transition: color 0.25s ease;
+    align-self: flex-start;
   }
 
-  .back-link:hover {
-    color: #fbbf24; /* Orange bei Hover */
-  }
+  .back-link:hover { color: #fbbf24; }
 
-  .app-icon-container {
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    filter: drop-shadow(0 0 20px var(--accent-glow));
-  }
-
-  .app-icon-emoji {
-    font-size: 80px;
-    display: block;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
+  /* icons removed from header */
 
   .app-header h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 0.5rem;
+    margin: 0;
     background: var(--primary-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -1px;
   }
 
-  .tagline {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .tagline { color: var(--text-muted); max-width: 64ch; text-align: center; }
 
   .app-content {
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
-    padding: 0 2rem 6rem;
+    padding: 2rem 1.5rem 4rem;
+    display: grid;
+    gap: 1.25rem;
   }
 
   .app-section {
-    margin-bottom: 4rem;
+    padding: 1.25rem;
+    background: var(--card-bg);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 8px 30px rgba(2,6,23,0.45);
   }
 
   .app-section h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
-    border-left: 4px solid #34d399; /* Grüner Akzent links */
-    padding-left: 1rem;
-  }
-
-  .app-section p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  /* Listen Styling */
-  .features-list,
-  .benefits-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .features-list li,
-  .benefits-list li {
-    font-size: 1.1rem;
-    color: #e5e7eb;
-    padding: 1rem;
+    font-size: 1.4rem;
+    color: #fff;
     margin-bottom: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.2s ease;
-  }
-  
-  .features-list li:hover {
-    transform: translateX(5px);
-    border-color: rgba(52, 211, 153, 0.3); /* Grüner Border bei Hover */
   }
 
-  .features-list li strong,
-  .benefits-list li strong {
-    color: #fbbf24; /* Orange Highlight im Text */
+  .app-section p { color: var(--text-muted); line-height: 1.75; }
+
+  .features-list, .benefits-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+
+  .features-list li, .benefits-list li {
+    display:flex; gap: 0.8rem; align-items:flex-start; padding: 0.9rem; border-radius: 12px; background: rgba(255,255,255,0.01); transition: all 200ms ease;
   }
 
-  /* CTA Card Styling */
-  .cta-section {
-    background: linear-gradient(135deg, rgba(52, 211, 153, 0.1), rgba(251, 191, 36, 0.1));
-    border: 1px solid rgba(52, 211, 153, 0.2);
-    border-radius: 24px;
-    padding: 3rem 2rem;
-    text-align: center;
-    margin-top: 5rem;
-    position: relative;
-    overflow: hidden;
-  }
+  .features-list li:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(2,6,23,0.6); }
 
-  /* Glanzeffekt für die Card */
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  }
+  .features-list li strong, .benefits-list li strong { color: #fbbf24; }
 
-  .cta-section h2 {
-    color: var(--text-main);
-    border: none;
-    padding: 0;
-    font-size: 2rem;
-  }
+  .cta-section { text-align:center; padding: 2rem; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
 
-  .cta-section p {
-    color: #d1d5db;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  .cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:999px; font-weight:700; background:var(--primary-gradient); color:#000; text-decoration:none; box-shadow: 0 10px 30px rgba(52,211,153,0.18); transition: transform 180ms ease; }
 
-  .cta-button {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: var(--primary-gradient);
-    color: #000;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
-  }
+  .cta-button:hover { transform: translateY(-4px); }
 
-  .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5); /* Orange Shadow bei Hover */
-  }
-  
-  .small-print {
-    margin-top: 1.5rem;
-    font-size: 0.85rem !important;
-    opacity: 0.5;
-  }
+  .small-print { margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem; }
 
-  @media (max-width: 768px) {
-    .app-header {
-      padding: 2rem 1.5rem;
-    }
-
-    .app-header h1 {
-      font-size: 2.5rem;
-    }
-
-    .tagline {
-      font-size: 1rem;
-    }
-    
-    .cta-section {
-      padding: 2rem 1.5rem;
-    }
+  @media (max-width: 720px) {
+    .app-header h1 { font-size: 2.2rem; }
+    .app-icon-container { width: 96px; height: 96px; }
   }
 </style>

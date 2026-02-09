@@ -6,10 +6,6 @@ import FocIcon from '../assets/Foc_icon.png';
 <Layout title="Focuzzz - Deine Waffe gegen digitale Ablenkung">
   <div class="app-header">
     <a href="/" class="back-link">← Zurück</a>
-    
-    <div class="app-icon-container">
-        <img src={FocIcon.src} alt="Focuzzz Icon" class="app-icon-img" />
-    </div>
 
     <h1>Focuzzz</h1>
     <p class="tagline">Nicht nur ein Timer. <br>Dein digitaler Schutzschild für echte Deep Work.</p>
@@ -69,190 +65,43 @@ import FocIcon from '../assets/Foc_icon.png';
 </Layout>
 
 <style>
-  /* --- Globale Farben passend zu Focuzzz (Blue / Indigo Glow) --- */
-  :root {
-    --primary-gradient: linear-gradient(135deg, #60a5fa, #a78bfa); /* Hellblau zu Violett */
-    --bg-color: #101010;
-    --card-bg: #1A1A1A;
-    --text-main: #ffffff;
-    --text-muted: #9ca3af;
-    --accent-glow: rgba(96, 165, 250, 0.4);
-  }
+  :root { --primary-gradient: linear-gradient(135deg, #60a5fa, #a78bfa); --accent-glow: rgba(96,165,250,0.12); --text-muted:#9ca3af; --card-bg: rgba(255,255,255,0.02); }
 
-  .app-header {
-    text-align: center;
-    padding: 4rem 2rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  .app-header { text-align:center; padding:3.5rem 1.5rem 1.5rem; max-width:1100px; margin:0 auto 1rem; display:flex; flex-direction:column; gap:0.75rem; align-items:center; }
 
-  .back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
-    color: #60a5fa;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
+  .back-link { color:#60a5fa; font-weight:600; text-decoration:none; align-self:flex-start; transition:color 200ms ease; }
 
-  .back-link:hover {
-    color: #a78bfa;
-  }
+  .back-link:hover { color:#a78bfa; }
 
-  .app-icon-container {
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    filter: drop-shadow(0 0 30px var(--accent-glow));
-  }
+  /* icons removed from header */
 
-  .app-icon-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 28px;
-    animation: float 6s ease-in-out infinite;
-  }
+  .app-header h1 { font-size:3rem; font-weight:800; margin:0; background:var(--primary-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 
-  @keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(2deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-  }
+  .tagline { color:var(--text-muted); max-width:64ch; text-align:center; }
 
-  .app-header h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -2px;
-  }
+  .app-content { max-width:880px; margin:0 auto; padding:2rem 1.5rem 4rem; display:grid; gap:1.25rem; }
 
-  .tagline {
-    font-size: 1.4rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-    font-weight: 300;
-  }
+  .app-section { padding:1.25rem; background:var(--card-bg); border-radius:14px; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 30px rgba(2,6,23,0.45); }
 
-  .app-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem 6rem;
-  }
+  .app-section h2 { font-size:1.4rem; color:#fff; margin-bottom:0.75rem; }
 
-  .app-section {
-    margin-bottom: 4rem;
-  }
+  .app-section p { color:var(--text-muted); line-height:1.75; }
 
-  .app-section h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
-    border-left: 5px solid #60a5fa;
-    padding-left: 1.25rem;
-  }
+  .features-list, .benefits-list { list-style:none; padding:0; margin:0; display:grid; gap:0.75rem; }
 
-  .app-section p {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-  }
+  .features-list li, .benefits-list li { display:flex; gap:0.8rem; align-items:flex-start; padding:0.9rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
 
-  .features-list,
-  .benefits-list {
-    list-style: none;
-    padding: 0;
-  }
+  .features-list li:hover { transform: translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.6); }
 
-  .features-list li,
-  .benefits-list li {
-    font-size: 1.1rem;
-    color: #e5e7eb;
-    padding: 1.25rem;
-    margin-bottom: 0.85rem;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .features-list li:hover {
-    transform: scale(1.02) translateX(10px);
-    background-color: rgba(96, 165, 250, 0.05);
-    border-color: rgba(96, 165, 250, 0.4);
-  }
+  .features-list li strong, .benefits-list li strong { color:#2dd4bf; }
 
-  .features-list li strong {
-    color: #60a5fa;
-  }
+  .cta-section { text-align:center; padding:2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
 
-  .benefits-list li strong {
-    color: #a78bfa;
-  }
+  .cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:999px; font-weight:700; background:var(--primary-gradient); color:#000; text-decoration:none; box-shadow:0 10px 30px rgba(96,165,250,0.12); }
 
-  .cta-section {
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
-    border: 1px solid rgba(167, 139, 250, 0.2);
-    border-radius: 32px;
-    padding: 3.5rem 2rem;
-    text-align: center;
-    margin-top: 5rem;
-  }
+  .cta-button:hover { transform: translateY(-4px); }
 
-  .cta-section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    color: #fff;
-  }
+  .small-print { margin-top:1rem; color:var(--text-muted); font-size:0.9rem; }
 
-  .button-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 1.1rem 2.8rem;
-    background: var(--primary-gradient);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 14px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
-  }
-
-  .cta-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(167, 139, 250, 0.5);
-  }
-
-  .coffee-link {
-    display: block;
-    color: #a78bfa;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 1rem;
-    opacity: 0.8;
-  }
-
-  .coffee-link:hover {
-    opacity: 1;
-    text-decoration: underline;
-  }
-  
-  .small-print {
-    margin-top: 2rem;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    opacity: 0.6;
-  }
-
-  @media (max-width: 768px) {
-    .app-header h1 { font-size: 3rem; }
-    .cta-section h2 { font-size: 1.8rem; }
-  }
+  @media (max-width:720px){ .app-header h1{ font-size:2.2rem } }
 </style>
