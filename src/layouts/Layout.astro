@@ -28,7 +28,8 @@ const { title = "Fehlstart" } = Astro.props;
 							<li><a href="/focuzzz">Focuzzz</a></li>
 						</ul>
 					</li>
-					<li><a href="#support" class="btn-support">Unterstütze mich</a></li>
+					<li><a href="/community" class="nav-link">Community</a></li>
+					<li><a href="/support" class="btn-support">Unterstütze mich</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -142,6 +143,10 @@ const { title = "Fehlstart" } = Astro.props;
 		display: flex;
 		gap: 2rem;
 		align-items: center;
+	}
+
+	.nav-links > li:nth-child(2) {
+		display: none;
 	}
 
 	.nav-links a {

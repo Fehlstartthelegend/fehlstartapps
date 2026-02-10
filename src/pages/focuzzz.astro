@@ -8,7 +8,7 @@ import FocIcon from '../assets/Foc_icon.png';
     <a href="/" class="back-link">← Zurück</a>
 
     <h1>Focuzzz</h1>
-    <p class="tagline">Nicht nur ein Timer. <br>Dein digitaler Schutzschild für echte Deep Work.</p>
+    <p class="tagline">Nicht nur ein Timer. <br>Dein digitaler Schutzschild für echtes Deep Work.</p>
   </div>
 
   <section class="app-content">
@@ -24,11 +24,11 @@ import FocIcon from '../assets/Foc_icon.png';
     <div class="app-section">
       <h2>Funktionen</h2>
       <ul class="features-list">
-        <li>🔌 <strong>Unplug-Modus:</strong> Die radikale Lösung für den Fokus. Reduziere Reize und zieh den Stecker aus der Ablenkungs-Welt.</li>
-        <li>🎵 <strong>Deep Soundscapes:</strong> Hochwertige Audio-Kulissen, die störende Geräusche im Büro oder Café einfach eliminieren.</li>
-        <li>🎨 <strong>Adaptive Themes:</strong> Ob Deep Night oder Electric Blue – das Design passt sich deinem Energie-Level an.</li>
-        <li>📱 <strong>Haptische Kontrolle:</strong> Ein Interface, das sich wertig anfühlt. Die Zeitsteuerung wird zum mechanischen Erlebnis.</li>
-        <li>📈 <strong>Keine Cloud, kein Bullshit:</strong> Deine Fokus-Daten gehören dir. Alles bleibt lokal, schnell und privat.</li>
+        <li><span class="feature-icon">🔌</span><span class="feature-title"><strong>Unplug-Modus:</strong></span><span class="feature-desc">Die radikale Lösung für den Fokus. Reduziere Reize und zieh den Stecker aus der Ablenkungs-Welt.</span></li>
+        <li><span class="feature-icon">🎵</span><span class="feature-title"><strong>Deep Soundscapes:</strong></span><span class="feature-desc">Hochwertige Audio-Kulissen, die störende Geräusche im Büro oder Café einfach eliminieren.</span></li>
+        <li><span class="feature-icon">🎨</span><span class="feature-title"><strong>Adaptive Themes:</strong></span><span class="feature-desc">Ob Deep Night oder Electric Blue – das Design passt sich deinem Energie-Level an.</span></li>
+        <li><span class="feature-icon">📱</span><span class="feature-title"><strong>Hochwertige Optik:</strong></span><span class="feature-desc">Ein Interface, das sich wertig anfühlt. Die Zeitsteuerung wird zum mechanischen Erlebnis.</span></li>
+        <li><span class="feature-icon">📈</span><span class="feature-title"><strong>Keine Cloud,<br>kein Bullshit:</strong></span><span class="feature-desc">Dein Fokus gehört dir. Alles ist lokal, schnell und privat.</span></li>
       </ul>
     </div>
 
@@ -38,9 +38,9 @@ import FocIcon from '../assets/Foc_icon.png';
         Während andere Apps dich mit Abos und Benachrichtigungen nerven, verfolgt Focuzzz einen radikal minimalistischen Ansatz.
       </p>
       <ul class="benefits-list">
-        <li>🔒 <strong>100% Privat:</strong> Kein Tracking, keine Accounts. Deine Daten bleiben in deinem "Büro".</li>
-        <li>🚫 <strong>Keine Werbung im Timer:</strong> Wenn du arbeitest, hast du Ruhe. Keine Unterbrechungen.</li>
-        <li>🎯 <strong>Pure Performance:</strong> Optimiert für minimalen Akkuverbrauch auf Android & iOS.</li>
+        <li><span class="feature-icon">🔒</span><span class="feature-title"><strong>100% Privat:</strong></span><span class="feature-desc">Kein Tracking, keine Accounts. Deine Daten bleiben in deinem "Büro".</span></li>
+        <li><span class="feature-icon">🚫</span><span class="feature-title"><strong>Keine Störungen:</strong></span><span class="feature-desc">Wenn du arbeitest, hast du Ruhe. Keine Unterbrechungen.</span></li>
+        <li><span class="feature-icon">🎯</span><span class="feature-title"><strong>Pure Performance:</strong></span><span class="feature-desc">Optimiert für minimalen Akkuverbrauch auf Android & iOS.</span></li>
       </ul>
     </div>
 
@@ -51,14 +51,14 @@ import FocIcon from '../assets/Foc_icon.png';
         deine beste Arbeit abzuliefern, freue ich mich über einen Kaffee. Das hält den Fokus auch bei mir hoch!
       </p>
       <div class="button-group">
-        <a href="https://play.google.com/store/apps/details?id=dein.package.name" target="_blank" class="cta-button">
+        <a href="https://play.google.com/store/apps/details?id=ch.fehlstart.focuzzz" target="_blank" class="cta-button primary">
           Im Play Store laden 📱
         </a>
+        <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button secondary">
+          Kaffee spendieren ☕
+        </a>
       </div>
-      <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="coffee-link">
-        Kaffee spendieren ☕
-      </a>
-      <p class="small-print">Jetzt verfügbar für Android. iOS Version via Mac Mini M1 in Arbeit.</p>
+      <p class="small-print">Jetzt verfügbar für Android. iOS Version in Arbeit.</p>
     </div>
 
   </section>
@@ -89,17 +89,31 @@ import FocIcon from '../assets/Foc_icon.png';
 
   .features-list, .benefits-list { list-style:none; padding:0; margin:0; display:grid; gap:0.75rem; }
 
-  .features-list li, .benefits-list li { display:flex; gap:0.8rem; align-items:flex-start; padding:0.9rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
+  .features-list li, .benefits-list li { display:grid; grid-template-columns:auto minmax(160px, auto) 1fr; gap:0.4rem 0.8rem; align-items:baseline; padding:1.25rem 1.5rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
 
   .features-list li:hover { transform: translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.6); }
 
-  .features-list li strong, .benefits-list li strong { color:#2dd4bf; }
+  .feature-icon { font-size:1.2rem; }
 
-  .cta-section { text-align:center; padding:2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+  .feature-title { }
 
-  .cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:999px; font-weight:700; background:var(--primary-gradient); color:#000; text-decoration:none; box-shadow:0 10px 30px rgba(96,165,250,0.12); }
+  .feature-title strong { color:#2dd4bf; }
 
-  .cta-button:hover { transform: translateY(-4px); }
+  .feature-desc { color:var(--text-muted); }
+
+  .cta-section { text-align:center; padding:2.5rem 2rem 1.5rem 2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+
+  .button-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin:1.5rem 0; }
+
+  .cta-button { display:inline-block; padding:1rem 2rem; border-radius:12px; font-weight:700; text-decoration:none; transition:all 200ms ease; border:2px solid transparent; }
+
+  .cta-button.primary { background:var(--primary-gradient); color:#000; box-shadow:0 10px 30px rgba(96,165,250,0.12); }
+
+  .cta-button.primary:hover { transform:translateY(-4px); box-shadow:0 15px 40px rgba(96,165,250,0.25); }
+
+  .cta-button.secondary { background:transparent; color:#a78bfa; border:2px solid rgba(167,139,250,0.5); }
+
+  .cta-button.secondary:hover { background:rgba(167,139,250,0.1); border-color:rgba(167,139,250,0.8); transform:translateY(-2px); }
 
   .small-print { margin-top:1rem; color:var(--text-muted); font-size:0.9rem; }
 

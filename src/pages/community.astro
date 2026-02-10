@@ -1,0 +1,232 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Community - Fehlstart Apps">
+  <section class="community-hero">
+    <div class="container">
+      <h1>Community</h1>
+      <p class="lead">Teile Ideen, hilf anderen oder stell Fragen — lokal gespeichert (Demo).</p>
+
+          <div class="compose">
+            <div class="row">
+              <label>Kategorie
+                <select id="post-category">
+                  <option value="Apps">Apps</option>
+                  <option value="Feedback">Feedback</option>
+                  <option value="Help">Help</option>
+                  <option value="Offtopic">Offtopic</option>
+                </select>
+              </label>
+
+              <label id="label-app">App
+                <select id="post-app">
+                  <option value="LeftoverLens">LeftoverLens</option>
+                  <option value="SackHeld">SackHeld</option>
+                  <option value="SleepSync">SleepSync</option>
+                  <option value="Focuzzz">Focuzzz</option>
+                </select>
+              </label>
+
+              <label>Unterkategorie
+                <select id="post-sub">
+                  <option value="Ideas">Ideen</option>
+                  <option value="Bugs">Bugs</option>
+                  <option value="Features">Feature Requests</option>
+                  <option value="UI">UI/Design</option>
+                </select>
+              </label>
+            </div>
+
+            <input id="post-title" placeholder="Titel (kurz & prägnant)" maxlength="120" />
+            <textarea id="post-body" placeholder="Was möchtest du teilen?" rows="4"></textarea>
+
+            <div class="compose-actions">
+              <div class="left">
+                <select id="sort-select">
+                  <option value="new">Neueste</option>
+                  <option value="top">Top</option>
+                </select>
+                <select id="filter-category">
+                  <option value="all">Alle Kategorien</option>
+                  <option value="Apps">Apps</option>
+                  <option value="Feedback">Feedback</option>
+                  <option value="Help">Help</option>
+                  <option value="Offtopic">Offtopic</option>
+                </select>
+                <select id="filter-app">
+                  <option value="all">Alle Apps</option>
+                  <option value="LeftoverLens">LeftoverLens</option>
+                  <option value="SackHeld">SackHeld</option>
+                  <option value="SleepSync">SleepSync</option>
+                  <option value="Focuzzz">Focuzzz</option>
+                </select>
+                <select id="filter-sub">
+                  <option value="all">Alle Unterkategorien</option>
+                </select>
+              </div>
+              <div class="right">
+                <button id="create-post">Posten</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="posts" class="posts"></div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .community-hero { padding: 3.5rem 1.5rem; max-width:1100px; margin:0 auto; }
+  .community-hero .container { display: grid; gap: 1rem; }
+  .community-hero h1 { font-size: 2.25rem; margin: 0 0 0.25rem 0; background: linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .lead { color: #9ca3af; margin-bottom: 0.5rem; }
+
+  .compose { display: grid; gap: 0.5rem; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 12px; border:1px solid rgba(255,255,255,0.03); }
+  .compose .row { display:flex; gap:0.5rem; align-items:center; }
+  .compose label{ display:flex; flex-direction:column; font-size:0.85rem }
+  .compose input, .compose textarea { width:100%; padding:0.75rem 1rem; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit; }
+  .compose-actions { display:flex; gap:0.5rem; justify-content:space-between; align-items:center; }
+  .compose-actions .left{ display:flex; gap:0.5rem; align-items:center }
+  .compose-actions select { padding:0.5rem 0.75rem; border-radius:8px; background:transparent; border:1px solid rgba(255,255,255,0.04); }
+  .compose-actions button { padding:0.6rem 1rem; border-radius:999px; background:linear-gradient(135deg,#60a5fa,#a78bfa); border:none; color:#fff; font-weight:700; cursor:pointer; }
+
+  .posts { display:grid; gap: 0.75rem; margin-top:1rem; }
+  .post { padding:1rem; border-radius:12px; background: rgba(255,255,255,0.01); border:1px solid rgba(255,255,255,0.03); display:grid; grid-template-columns: auto 1fr; gap:0.75rem; align-items:start; }
+  .votes { width:56px; text-align:center; display:flex; flex-direction:column; gap:0.4rem; align-items:center; }
+  .vote-btn { background:transparent; border:1px solid rgba(255,255,255,0.04); width:36px; height:36px; border-radius:8px; cursor:pointer; }
+  .post h3 { margin:0; font-size:1.05rem; }
+  .meta { color:#9ca3af; font-size:0.85rem; margin-bottom:0.5rem; }
+  .chip { display:inline-block; padding:0.18rem 0.5rem; border-radius:999px; background:rgba(255,255,255,0.03); font-size:0.82rem; margin-right:0.5rem }
+  .body { color:#d1d5db; white-space:pre-wrap; }
+  .post .actions { margin-top:0.75rem; display:flex; gap:0.5rem; }
+  .comment-list { margin-top:0.75rem; display:grid; gap:0.5rem; }
+  .comment { padding:0.5rem; border-radius:8px; background: rgba(255,255,255,0.01); border:1px solid rgba(255,255,255,0.02); }
+  .small { font-size:0.85rem; color:#9ca3af }
+
+  @media (max-width:720px){ .post { grid-template-columns: 1fr; } .votes{ flex-direction:row; width:auto } }
+</style>
+
+<script type="module">
+  const STORAGE_KEY = 'fehlstart_community_posts_v1';
+
+  const APP_SUBS = {
+    LeftoverLens: ['Ideas','Bugs','Features','UI'],
+    SackHeld: ['Ideas','Bugs','Features','Sync'],
+    SleepSync: ['Ideas','Bugs','Features','Research'],
+    Focuzzz: ['Ideas','Bugs','Features','Audio'],
+    default: ['General','Ideas','Bugs']
+  };
+
+  function uid(){ return Math.random().toString(36).slice(2,9); }
+
+  function load(){ try{ return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }catch(e){ return []; } }
+  function save(posts){ localStorage.setItem(STORAGE_KEY, JSON.stringify(posts)); }
+  function timeAgo(ts){ const diff = Math.floor((Date.now()-ts)/1000); if(diff<60) return diff+'s'; if(diff<3600) return Math.floor(diff/60)+'m'; if(diff<86400) return Math.floor(diff/3600)+'h'; return Math.floor(diff/86400)+'d'; }
+
+  function matchesFilter(p){
+    const fc = document.getElementById('filter-category').value;
+    const fa = document.getElementById('filter-app').value;
+    const fs = document.getElementById('filter-sub').value;
+    if(fc !== 'all' && p.category !== fc) return false;
+    if(fa !== 'all' && (p.app || '') !== fa) return false;
+    if(fs !== 'all' && (p.sub || '') !== fs) return false;
+    return true;
+  }
+
+  function render(){
+    const postsEl = document.getElementById('posts');
+    const posts = load();
+    const sort = document.getElementById('sort-select').value;
+    const sorted = posts.slice().filter(matchesFilter).sort((a,b)=> sort==='top' ? (b.votes-a.votes) || (b.createdAt-a.createdAt) : (b.createdAt-a.createdAt));
+    postsEl.innerHTML = '';
+    for(const p of sorted){
+      const post = document.createElement('div'); post.className='post'; post.dataset.id=p.id;
+      post.innerHTML = `
+        <div class="votes">
+          <button class="vote-btn up">▲</button>
+          <div class="score">${p.votes}</div>
+          <button class="vote-btn down">▼</button>
+        </div>
+        <div>
+          <div class="meta small">
+            <span class="chip">${escapeHtml(p.category || 'Apps')}</span>
+            ${p.app? `<span class="chip">${escapeHtml(p.app)}</span>`:''}
+            ${p.sub? `<span class="chip">${escapeHtml(p.sub)}</span>`:''}
+            • ${timeAgo(p.createdAt)} • ${p.comments?.length||0} Kommentare
+          </div>
+          <h3>${escapeHtml(p.title)}</h3>
+          <div class="body">${escapeHtml(p.body)}</div>
+          <div class="actions">
+            <button class="btn comment-toggle small">Kommentar</button>
+            <button class="btn delete small">Löschen</button>
+          </div>
+          <div class="comment-area" style="display:none; margin-top:0.75rem">
+            <textarea class="comment-input" rows="2" placeholder="Antwort..." style="width:100%; padding:0.5rem; border-radius:8px; background:transparent; border:1px solid rgba(255,255,255,0.03);"></textarea>
+            <div style="margin-top:0.5rem; display:flex; gap:0.5rem; justify-content:flex-end;"><button class="btn add-comment small">Antworten</button></div>
+            <div class="comment-list"></div>
+          </div>
+        </div>
+      `;
+      postsEl.appendChild(post);
+      const cl = post.querySelector('.comment-list');
+      (p.comments||[]).forEach(c=>{ const d=document.createElement('div'); d.className='comment'; d.textContent=c.text; cl.appendChild(d); });
+    }
+  }
+
+  function escapeHtml(s){ if(!s) return ''; return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
+
+  function updateSubOptionsForApp(selectEl, app){
+    const subs = APP_SUBS[app] || APP_SUBS.default;
+    selectEl.innerHTML = '';
+    subs.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s; selectEl.appendChild(o); });
+  }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const postApp = document.getElementById('post-app');
+    const postCat = document.getElementById('post-category');
+    const postSub = document.getElementById('post-sub');
+    const filterApp = document.getElementById('filter-app');
+    const filterSub = document.getElementById('filter-sub');
+
+    updateSubOptionsForApp(postSub, postApp.value);
+    updateSubOptionsForApp(filterSub, filterApp.value==='all'? 'default' : filterApp.value);
+
+    postApp.addEventListener('change', ()=> updateSubOptionsForApp(postSub, postApp.value));
+    postCat.addEventListener('change', ()=>{
+      const labelApp = document.getElementById('label-app');
+      if(postCat.value === 'Apps') labelApp.style.display='block'; else labelApp.style.display='none';
+    });
+
+    filterApp.addEventListener('change', ()=> updateSubOptionsForApp(filterSub, filterApp.value==='all'? 'default' : filterApp.value));
+
+    render();
+
+    document.getElementById('create-post').addEventListener('click', ()=>{
+      const title = document.getElementById('post-title').value.trim();
+      const body = document.getElementById('post-body').value.trim();
+      const category = document.getElementById('post-category').value;
+      const app = category==='Apps' ? document.getElementById('post-app').value : '';
+      const sub = document.getElementById('post-sub').value;
+      if(!title && !body) return alert('Bitte Titel oder Text eingeben.');
+      const posts = load();
+      posts.push({ id: uid(), title, body, votes: 0, createdAt: Date.now(), comments: [], category, app, sub });
+      save(posts); document.getElementById('post-title').value=''; document.getElementById('post-body').value=''; render();
+    });
+
+    document.getElementById('sort-select').addEventListener('change', render);
+    document.getElementById('filter-category').addEventListener('change', render);
+    document.getElementById('filter-app').addEventListener('change', ()=>{ updateSubOptionsForApp(filterSub, filterApp.value==='all'? 'default' : filterApp.value); render(); });
+    document.getElementById('filter-sub').addEventListener('change', render);
+
+    document.getElementById('posts').addEventListener('click', (ev)=>{
+      const postEl = ev.target.closest('.post'); if(!postEl) return; const id = postEl.dataset.id; const posts = load(); const p = posts.find(x=>x.id===id); if(!p) return;
+      if(ev.target.closest('.up')){ p.votes++; save(posts); render(); }
+      if(ev.target.closest('.down')){ p.votes--; save(posts); render(); }
+      if(ev.target.closest('.delete')){ if(confirm('Post löschen?')){ const idx = posts.findIndex(x=>x.id===id); posts.splice(idx,1); save(posts); render(); } }
+      if(ev.target.closest('.comment-toggle')){ const area = postEl.querySelector('.comment-area'); area.style.display = area.style.display==='none' ? 'block' : 'none'; }
+      if(ev.target.closest('.add-comment')){
+        const input = postEl.querySelector('.comment-input'); const text = input.value.trim(); if(!text) return; p.comments = p.comments || []; p.comments.push({ id: uid(), text }); save(posts); render(); }
+    });
+  });
+</script>

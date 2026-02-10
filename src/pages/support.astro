@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Unterstütze Fehlstart Apps">
+  <div class="app-header">
+    <a href="/" class="back-link">← Zurück</a>
+
+    <h1>Unterstütze mich ☕</h1>
+    <p class="tagline">Helfe mir, bessere Apps zu entwickeln.</p>
+  </div>
+
+  <section class="app-content">
+    <div class="app-section">
+      <h2>Warum Spenden?</h2>
+      <p>
+        Die Apps von <strong>Fehlstart</strong> sind zum grossen Teil kostenlos – es gibt keine Abos, wo keine Kosten entstehen, keine versteckten Gebühren und so gut wie keine Ads. 
+        Alles entsteht in meiner Freizeit aus vollster Leidenschaft.
+      </p>
+      <p>
+        Wenn dir eine oder mehrere meiner Apps helfen, dein Leben besser zu organisieren, produktiver oder gesünder zu sein – 
+        dann freue ich mich über deine Unterstützung. Jeder Kaffee hilft mir, weiterzumachen und neue Features zu entwickeln!
+      </p>
+    </div>
+
+    <div class="app-section">
+      <h2>So kannst du unterstützen</h2>
+      <ul class="benefits-list">
+        <li><span class="feature-icon">☕</span><span class="feature-title"><strong>Buy Me a Coffee:</strong></span><span class="feature-desc">Die flexibelste Variante – spendiere mir einen, zwei oder fünf Kaffees. Einmalig oder regelmäßig.</span></li>
+        <li><span class="feature-icon">❤️</span><span class="feature-title"><strong>App-Rating:</strong></span><span class="feature-desc">Eine 5-Sterne-Bewertung im Play Store oder App Store hilft immens, damit andere meine Apps finden.</span></li>
+        <li><span class="feature-icon">🤝</span><span class="feature-title"><strong>Feedback & Ideen:</strong></span><span class="feature-desc">Die beste Unterstützung? Schreib mir dein Feedback oder neue Feature-Ideen. Das motiviert mich am meisten!</span></li>
+        <li><span class="feature-icon">📢</span><span class="feature-title"><strong>Weitersagen:</strong></span><span class="feature-desc">Erzähl deinen Freunden von den Apps. Word-of-Mouth ist das beste Marketing!</span></li>
+      </ul>
+    </div>
+
+    <div class="cta-section">
+      <h2>Danke für deine Unterstützung! 🙏</h2>
+      <p>
+        Ob du spendest oder nicht – ich liebe, dass du meine Apps nutzt. 
+        Jedes Feedback und jede Bewertung bedeutet mir viel.
+      </p>
+      <div class="button-group">
+        <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button primary">
+          Kaffee spendieren ☕
+        </a>
+        <a href="mailto:fehlstartapps@gmail.com" class="cta-button secondary">
+          Feedback schreiben ✉️
+        </a>
+      </div>
+      <p class="small-print">Vielen Dank für deine Unterstützung und dein Vertrauen!</p>
+    </div>
+
+  </section>
+</Layout>
+
+<style>
+  :root { --primary-gradient: linear-gradient(135deg, #60a5fa, #a78bfa); --accent-glow: rgba(96,165,250,0.12); --text-muted:#9ca3af; --card-bg: rgba(255,255,255,0.02); }
+
+  .app-header { text-align:center; padding:3.5rem 1.5rem 1.5rem; max-width:1100px; margin:0 auto 1rem; display:flex; flex-direction:column; gap:0.75rem; align-items:center; }
+
+  .back-link { color:#60a5fa; font-weight:600; text-decoration:none; align-self:flex-start; transition:color 200ms ease; }
+
+  .back-link:hover { color:#a78bfa; }
+
+  .app-header h1 { font-size:3rem; font-weight:800; margin:0; background:var(--primary-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+  .tagline { color:var(--text-muted); max-width:64ch; text-align:center; }
+
+  .app-content { max-width:880px; margin:0 auto; padding:2rem 1.5rem 4rem; display:grid; gap:1.25rem; }
+
+  .app-section { padding:1.25rem; background:var(--card-bg); border-radius:14px; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 30px rgba(2,6,23,0.45); }
+
+  .app-section h2 { font-size:1.4rem; color:#fff; margin-bottom:0.75rem; }
+
+  .app-section p { color:var(--text-muted); line-height:1.75; }
+
+  .app-section p + p { margin-top:1rem; }
+
+  .benefits-list { list-style:none; padding:0; margin:0; display:grid; gap:0.75rem; }
+
+  .benefits-list li { display:grid; grid-template-columns:auto minmax(160px, auto) 1fr; gap:0.4rem 0.8rem; align-items:baseline; padding:1.25rem 1.5rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
+
+  .benefits-list li:hover { transform: translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.6); }
+
+  .feature-icon { font-size:1.2rem; }
+
+  .feature-title strong { color:#60a5fa; }
+
+  .feature-desc { color:var(--text-muted); }
+
+  .cta-section { text-align:center; padding:2.5rem 2rem 1.5rem 2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+
+  .button-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin:1.5rem 0; }
+
+  .cta-button { display:inline-block; padding:1rem 2rem; border-radius:12px; font-weight:700; text-decoration:none; transition:all 200ms ease; border:2px solid transparent; }
+
+  .cta-button.primary { background:var(--primary-gradient); color:#000; box-shadow:0 10px 30px rgba(96,165,250,0.12); }
+
+  .cta-button.primary:hover { transform:translateY(-4px); box-shadow:0 15px 40px rgba(96,165,250,0.25); }
+
+  .cta-button.secondary { background:transparent; color:#a78bfa; border:2px solid rgba(167,139,250,0.5); }
+
+  .cta-button.secondary:hover { background:rgba(167,139,250,0.1); border-color:rgba(167,139,250,0.8); transform:translateY(-2px); }
+
+  .small-print { margin-top:1rem; color:var(--text-muted); font-size:0.9rem; }
+
+  @media (max-width:720px){ .app-header h1{ font-size:2.2rem } }
+</style>

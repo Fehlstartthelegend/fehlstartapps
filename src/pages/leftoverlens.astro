@@ -24,11 +24,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="app-section">
       <h2>Funktionen</h2>
       <ul class="features-list">
-        <li>📸 <strong>Scan & Cook:</strong> Richte die Kamera auf deine Zutaten – unsere KI erkennt, was da ist.</li>
-        <li>✨ <strong>Smarte Rezepte:</strong> Erhalte Vorschläge, die genau auf deinen Vorräten basieren. Keine unnötigen Einkäufe mehr.</li>
-        <li>🥑 <strong>Dein Style:</strong> Egal ob Vegan, Glutenfrei, Keto oder "Ich esse alles" – der Algorithmus passt sich dir an.</li>
-        <li>☁️ <strong>Cloud Sync (Pro):</strong> Speichere deine Lieblingsrezepte sicher in der Cloud und nimm sie überall hin mit.</li>
-        <li>💰 <strong>Geld sparen:</strong> Wer Reste verwertet, kauft weniger neu. Gut für den Geldbeutel, gut für den Planeten.</li>
+        <li><span class="feature-icon">📸</span><span class="feature-title"><strong>Scan & Cook:</strong></span><span class="feature-desc">Richte die Kamera auf deine Zutaten – unsere KI erkennt, was da ist.</span></li>
+        <li><span class="feature-icon">✨</span><span class="feature-title"><strong>Smarte Rezepte:</strong></span><span class="feature-desc">Erhalte Vorschläge, die genau auf deinen Vorräten basieren. Keine unnötigen Einkäufe mehr.</span></li>
+        <li><span class="feature-icon">🥑</span><span class="feature-title"><strong>Dein Style:</strong></span><span class="feature-desc">Egal ob Vegan, Glutenfrei, Keto oder "Ich esse alles" – der Algorithmus passt sich dir an.</span></li>
+        <li><span class="feature-icon">☁️</span><span class="feature-title"><strong>Cloud Sync (Pro):</strong></span><span class="feature-desc">Speichere deine Lieblingsrezepte sicher in der Cloud und nimm sie überall hin mit.</span></li>
+        <li><span class="feature-icon">💰</span><span class="feature-title"><strong>Geld sparen:</strong></span><span class="feature-desc">Wer Reste verwertet, kauft weniger neu. Gut für den Geldbeutel, gut für den Planeten.</span></li>
       </ul>
     </div>
 
@@ -38,9 +38,9 @@ import Layout from '../layouts/Layout.astro';
         Andere Rezept-Apps wollen dir exotische Zutaten verkaufen. Wir wollen, dass du das benutzt, was du schon hast.
       </p>
       <ul class="benefits-list">
-        <li>🔒 <strong>Privacy First:</strong> Free-User bleiben komplett lokal (Hive Database). Deine Daten gehören dir.</li>
-        <li>🚀 <strong>Schnell & Einfach:</strong> Kein langes Suchen. Foto machen, kochen, genießen.</li>
-        <li>🌍 <strong>Nachhaltig:</strong> Reduziere deinen persönlichen Food Waste spielend leicht.</li>
+        <li><span class="feature-icon">🔒</span><span class="feature-title"><strong>Privacy First:</strong></span><span class="feature-desc">Free-User bleiben komplett lokal (Hive Database). Deine Daten gehören dir.</span></li>
+        <li><span class="feature-icon">🚀</span><span class="feature-title"><strong>Schnell & Einfach:</strong></span><span class="feature-desc">Kein langes Suchen. Foto machen, kochen, genießen.</span></li>
+        <li><span class="feature-icon">🌍</span><span class="feature-title"><strong>Nachhaltig:</strong></span><span class="feature-desc">Reduziere deinen persönlichen Food Waste spielend leicht.</span></li>
       </ul>
     </div>
 
@@ -50,9 +50,11 @@ import Layout from '../layouts/Layout.astro';
         LeftoverLens ist mehr als nur eine App – es ist ein Werkzeug für bewussteren Konsum. 
         Starte jetzt kostenlos und verwandle Reste in 5-Sterne-Gerichte.
       </p>
-      <a href="#" class="cta-button">
-        Jetzt kostenlos laden 📲
-      </a>
+      <div class="button-group">
+        <a href="#" class="cta-button primary">
+          Jetzt kostenlos laden 📲
+        </a>
+      </div>
       <p class="small-print">Verfügbar für Android & bald iOS.</p>
     </div>
 
@@ -127,15 +129,19 @@ import Layout from '../layouts/Layout.astro';
 
   .features-list, .benefits-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
 
-  .features-list li, .benefits-list li {
-    display:flex; gap: 0.8rem; align-items:flex-start; padding: 0.9rem; border-radius: 12px; background: rgba(255,255,255,0.01); transition: all 200ms ease;
-  }
+  .features-list li, .benefits-list li { display:grid; grid-template-columns:auto minmax(160px, auto) 1fr; gap:0.4rem 0.8rem; align-items:baseline; padding:1.25rem 1.5rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
 
-  .features-list li:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(2,6,23,0.6); }
+  .features-list li:hover { transform: translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.6); }
 
-  .features-list li strong, .benefits-list li strong { color: #fbbf24; }
+  .feature-icon { font-size:1.2rem; }
 
-  .cta-section { text-align:center; padding: 2rem; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+  .feature-title { }
+
+  .feature-title strong { color: #fbbf24; }
+
+  .feature-desc { color:var(--text-muted); }
+
+  .cta-section { text-align:center; padding:2.5rem 2rem 1.5rem 2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
 
   .cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:999px; font-weight:700; background:var(--primary-gradient); color:#000; text-decoration:none; box-shadow: 0 10px 30px rgba(52,211,153,0.18); transition: transform 180ms ease; }
 

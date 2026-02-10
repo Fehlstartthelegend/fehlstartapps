@@ -24,10 +24,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="app-section">
       <h2>Funktionen</h2>
       <ul class="features-list">
-        <li>📊 <strong>Smart Budgeting:</strong> Erfasse Ausgaben in Sekunden und sieh sofort, was dir diesen Monat noch bleibt.</li>
-        <li>🎯 <strong>Sparziele:</strong> Setze dir Ziele für Ferien oder Anschaffungen und verfolge visuell deinen Fortschritt.</li>
-        <li>☁️ <strong>Google Drive Sync:</strong> Deine Daten gehören dir. Sichere dein Backup einfach in deinem eigenen Google Drive.</li>
-        <li>📄 <strong>PDF-Berichte:</strong> Erstelle auf Knopfdruck übersichtliche Auswertungen deiner Finanzen.</li>
+        <li><span class="feature-icon">📊</span><span class="feature-title"><strong>Smart Budgeting:</strong></span><span class="feature-desc">Erfasse Ausgaben in Sekunden und sieh sofort, was dir diesen Monat noch bleibt.</span></li>
+        <li><span class="feature-icon">🎯</span><span class="feature-title"><strong>Sparziele:</strong></span><span class="feature-desc">Setze dir Ziele für Ferien oder Anschaffungen und verfolge visuell deinen Fortschritt.</span></li>
+        <li><span class="feature-icon">☁️</span><span class="feature-title"><strong>Google Drive Sync:</strong></span><span class="feature-desc">Deine Daten gehören dir. Sichere dein Backup einfach in deinem eigenen Google Drive.</span></li>
+        <li><span class="feature-icon">📄</span><span class="feature-title"><strong>PDF-Berichte:</strong></span><span class="feature-desc">Erstelle auf Knopfdruck übersichtliche Auswertungen deiner Finanzen.</span></li>
       </ul>
     </div>
 
@@ -37,9 +37,9 @@ import Layout from '../layouts/Layout.astro';
         Finanz-Apps müssen nicht kompliziert sein oder deine Daten verkaufen.
       </p>
       <ul class="benefits-list">
-        <li>🔒 <strong>100% Privat:</strong> Alle Daten bleiben lokal auf deinem Gerät oder in deinem privaten Cloud-Speicher.</li>
-        <li>🚫 <strong>Kein Abo-Zwang:</strong> Keine monatlichen Kosten. Alle Kernfeatures sind frei zugänglich.</li>
-        <li>🇨🇭 <strong>Einfachheit:</strong> Fokus auf das Wesentliche, ohne unnötigen Ballast.</li>
+        <li><span class="feature-icon">🔒</span><span class="feature-title"><strong>100% Privat:</strong></span><span class="feature-desc">Alle Daten bleiben lokal auf deinem Gerät oder in deinem privaten Cloud-Speicher.</span></li>
+        <li><span class="feature-icon">🚫</span><span class="feature-title"><strong>Kein Abo-Zwang:</strong></span><span class="feature-desc">Keine monatlichen Kosten. Alle Kernfeatures sind frei zugänglich.</span></li>
+        <li><span class="feature-icon">🇨🇭</span><span class="feature-title"><strong>Einfachheit:</strong></span><span class="feature-desc">Fokus auf das Wesentliche, ohne unnötigen Ballast.</span></li>
       </ul>
     </div>
 
@@ -49,9 +49,11 @@ import Layout from '../layouts/Layout.astro';
         SackHeld ist ein Herzensprojekt und kommt ohne nervige Abos aus. Wenn dir die App hilft, 
         dein Budget besser zu planen, freue ich mich über einen virtuellen Kaffee. Das hält die Entwicklung am Laufen!
       </p>
-      <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button">
-        Einen Kaffee spendieren ☕
-      </a>
+      <div class="button-group">
+        <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button primary">
+          Einen Kaffee spendieren ☕
+        </a>
+      </div>
       <p class="small-print">Verfügbar für Android & bald für iOS.</p>
     </div>
 
@@ -88,15 +90,31 @@ import Layout from '../layouts/Layout.astro';
 
   .features-list, .benefits-list { list-style:none; padding:0; margin:0; display:grid; gap:0.75rem; }
 
-  .features-list li, .benefits-list li { display:flex; gap:0.8rem; align-items:flex-start; padding:0.9rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
+  .features-list li, .benefits-list li { display:grid; grid-template-columns:auto minmax(160px, auto) 1fr; gap:0.4rem 0.8rem; align-items:baseline; padding:1.25rem 1.5rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
 
   .features-list li:hover { transform: translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.6); }
 
-  .features-list li strong { color: #00796B; }
+  .feature-icon { font-size:1.2rem; }
 
-  .cta-section { text-align:center; padding:2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+  .feature-title { }
 
-  .cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:999px; font-weight:700; background:var(--primary-gradient); color:#fff; text-decoration:none; box-shadow:0 10px 30px rgba(0,121,107,0.12); }
+  .feature-title strong { color: #00796B; }
+
+  .feature-desc { color:var(--text-muted); }
+
+  .cta-section { text-align:center; padding:2.5rem 2rem 1.5rem 2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+
+  .button-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin:1.5rem 0; }
+
+  .cta-button { display:inline-block; padding:1rem 2rem; border-radius:12px; font-weight:700; text-decoration:none; transition:all 200ms ease; border:2px solid transparent; }
+
+  .cta-button.primary { background:var(--primary-gradient); color:#fff; box-shadow:0 10px 30px rgba(0,121,107,0.12); }
+
+  .cta-button.primary:hover { transform:translateY(-4px); box-shadow:0 15px 40px rgba(0,121,107,0.25); }
+
+  .cta-button.secondary { background:transparent; color:#26A69A; border:2px solid rgba(38,166,154,0.5); }
+
+  .cta-button.secondary:hover { background:rgba(38,166,154,0.1); border-color:rgba(38,166,154,0.8); transform:translateY(-2px); }
 
   .cta-button:hover { transform: translateY(-4px); }
 

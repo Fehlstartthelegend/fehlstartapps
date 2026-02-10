@@ -24,11 +24,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="app-section">
       <h2>Funktionen</h2>
       <ul class="features-list">
-        <li>🧬 <strong>Ultradiane Zyklen:</strong> Berechnung der optimalen Bettzeit (4, 5 oder 6 Zyklen).</li>
-        <li>📉 <strong>5-Minuten-Shift:</strong> Ein intelligenter Algorithmus, der deine Bettzeit sanft anpasst, bis du deinen Sweet-Spot gefunden hast.</li>
-        <li>📝 <strong>Morgen-Journal:</strong> Bewerte deine Energie und tracke Faktoren wie Koffein oder Sport.</li>
-        <li>🌑 <strong>Melatonin-Safe:</strong> Ein komplett dunkles "OLED-friendly" Design, das dich abends nicht wach hält.</li>
-        <li>🧠 <strong>Daily Knowledge:</strong> Lerne jeden Tag einen neuen wissenschaftlichen Fakt über Schlaf.</li>
+        <li><span class="feature-icon">🧬</span><span class="feature-title"><strong>Ultradiane Zyklen:</strong></span><span class="feature-desc">Berechnung der optimalen Bettzeit (4, 5 oder 6 Zyklen).</span></li>
+        <li><span class="feature-icon">📉</span><span class="feature-title"><strong>5-Minuten-Shift:</strong></span><span class="feature-desc">Ein intelligenter Algorithmus, der deine Bettzeit sanft anpasst, bis du deinen Sweet-Spot gefunden hast.</span></li>
+        <li><span class="feature-icon">📝</span><span class="feature-title"><strong>Morgen-Journal:</strong></span><span class="feature-desc">Bewerte deine Energie und tracke Faktoren wie Koffein oder Sport.</span></li>
+        <li><span class="feature-icon">🌑</span><span class="feature-title"><strong>Melatonin-Safe:</strong></span><span class="feature-desc">Ein komplett dunkles "OLED-friendly" Design, das dich abends nicht wach hält.</span></li>
+        <li><span class="feature-icon">🧠</span><span class="feature-title"><strong>Daily Knowledge:</strong></span><span class="feature-desc">Lerne jeden Tag einen neuen wissenschaftlichen Fakt über Schlaf.</span></li>
       </ul>
     </div>
 
@@ -38,9 +38,9 @@ import Layout from '../layouts/Layout.astro';
         Die meisten Apps wollen deine Daten verkaufen oder nerven mit Abos. SleepSync ist anders.
       </p>
       <ul class="benefits-list">
-        <li>🔒 <strong>100% Privat:</strong> Alle Daten bleiben lokal auf deinem Gerät (Hive Database).</li>
-        <li>🚫 <strong>Kein Abo:</strong> Nutze alle Features kostenlos.</li>
-        <li>🔋 <strong>Akku-Schonend:</strong> Kein nächtliches Mikrofon- oder Sensor-Tracking.</li>
+        <li><span class="feature-icon">🔒</span><span class="feature-title"><strong>100% Privat:</strong></span><span class="feature-desc">Alle Daten bleiben lokal auf deinem Gerät (Hive Database).</span></li>
+        <li><span class="feature-icon">🚫</span><span class="feature-title"><strong>Kein Abo:</strong></span><span class="feature-desc">Nutze alle Features kostenlos.</span></li>
+        <li><span class="feature-icon">🔋</span><span class="feature-title"><strong>Akku-Schonend:</strong></span><span class="feature-desc">Kein nächtliches Mikrofon- oder Sensor-Tracking.</span></li>
       </ul>
     </div>
 
@@ -50,9 +50,11 @@ import Layout from '../layouts/Layout.astro';
         SleepSync ist "Donationware". Wenn dir die App hilft, deinen Rhythmus zu finden, 
         freue ich mich über einen virtuellen Kaffee. Das hält die Entwicklung am Laufen!
       </p>
-      <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button">
-        Einen Kaffee spendieren ☕
-      </a>
+      <div class="button-group">
+        <a href="https://www.buymeacoffee.com/fehlstartapps" target="_blank" class="cta-button primary">
+          Einen Kaffee spendieren ☕
+        </a>
+      </div>
       <p class="small-print">Verfügbar für Android (Sideload) & bald iOS.</p>
     </div>
 
@@ -84,17 +86,31 @@ import Layout from '../layouts/Layout.astro';
 
   .features-list, .benefits-list { list-style:none; padding:0; margin:0; display:grid; gap:0.75rem; }
 
-  .features-list li, .benefits-list li { display:flex; gap:0.8rem; align-items:flex-start; padding:0.9rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
+  .features-list li, .benefits-list li { display:grid; grid-template-columns:auto minmax(160px, auto) 1fr; gap:0.4rem 0.8rem; align-items:baseline; padding:1.25rem 1.5rem; border-radius:12px; background:rgba(255,255,255,0.01); transition:all 200ms ease; }
 
   .features-list li:hover { transform: translateY(-6px); box-shadow:0 14px 30px rgba(2,6,23,0.6); }
 
-  .features-list li strong, .benefits-list li strong { color: #2dd4bf; }
+  .feature-icon { font-size:1.2rem; }
 
-  .cta-section { text-align:center; padding:2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+  .feature-title { }
 
-  .cta-button { display:inline-block; padding:0.9rem 1.8rem; border-radius:999px; font-weight:700; background:var(--primary-gradient); color:#000; text-decoration:none; box-shadow:0 10px 30px rgba(45,212,191,0.12); }
+  .feature-title strong { color: #2dd4bf; }
 
-  .cta-button:hover { transform: translateY(-4px); }
+  .feature-desc { color:var(--text-muted); }
+
+  .cta-section { text-align:center; padding:2.5rem 2rem 1.5rem 2rem; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border:1px solid rgba(255,255,255,0.03); }
+
+  .button-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin:1.5rem 0; }
+
+  .cta-button { display:inline-block; padding:1rem 2rem; border-radius:12px; font-weight:700; text-decoration:none; transition:all 200ms ease; border:2px solid transparent; }
+
+  .cta-button.primary { background:var(--primary-gradient); color:#000; box-shadow:0 10px 30px rgba(45,212,191,0.12); }
+
+  .cta-button.primary:hover { transform:translateY(-4px); box-shadow:0 15px 40px rgba(45,212,191,0.25); }
+
+  .cta-button.secondary { background:transparent; color:#818cf8; border:2px solid rgba(129,140,248,0.5); }
+
+  .cta-button.secondary:hover { background:rgba(129,140,248,0.1); border-color:rgba(129,140,248,0.8); transform:translateY(-2px); }
 
   .small-print { margin-top:1rem; color:var(--text-muted); font-size:0.9rem; }
 
